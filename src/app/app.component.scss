@@ -1,0 +1,30 @@
+ion-app {
+  ion-menu {
+    border-right: none;
+    --max-width: 150px;
+  }
+
+  ion-toolbar {
+
+    .tb-logo {
+      max-height: 1.8rem;
+      vertical-align: middle;
+    }
+
+  }
+
+  .no-padding {
+    padding: 0;
+  }
+}
+
+// Menu size
+.split-pane-md.split-pane-visible>.split-pane-side {
+  max-width: 150px;
+  min-width: inherit;
+}
+
+// Border split pan
+.split-pane-md {
+  --border: none;
+}

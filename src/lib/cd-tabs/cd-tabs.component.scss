@@ -1,0 +1,26 @@
+.content {
+  padding: 0.3rem;
+  display: block;
+
+  transition: opacity 0.2s ease-in-out;
+}
+
+.hidden {
+  display: none;
+
+  transition: opacity 0.2s ease-in-out;
+}
+
+.buttons {
+  --color: var(--ion-color-contrast, #333333);
+  --background: var(--ion-color-base, #FFFFFF);
+  --color-selected: var(--ion-color-shade, #DDDDDD);
+  --background-hover: var(--ion-color-tint, #EEEEEE);
+
+  display: flex;
+  background: var(--background);
+}
+
+.cd-tabs-vertical {
+  display: block;
+}

@@ -1,14 +1,75 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar color="primary">
+        <ion-title>
+
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+<ion-content class="ion-padding">
+        <h1 class="ion-text-center">
+            Angular Cd-Tabs !
+        </h1>
+        <div  class="ion-text-center">
+            <img width="100" alt="Angular Logo"
+                 src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+        </div>
+        <section>
+            <h1>Introduction</h1>
+            <p><code>cd-tabs</code> is a simple <a href="https://angular.io/" target="_blank">Angular CLI</a> component that manage <strong>tabs</strong>, based on <a href="https://ionicframework.com/docs/api/tabs" target="_blank">Ionic tabs</a>. </p>
+            <p><code>cd-tabs</code> is able to:</p>
+            <ul>
+                <li>display horizontal and vertical tabs.</li>
+                <li>manage icons.</li>
+                <li>manage router integration or simple tabs.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h1>Basic Example:</h1>
+            The following code renders the following sample:
+
+            <h3>Code:</h3>
+            <pre>
+&lt;cd-tabs&gt;
+    &lt;cd-tab&gt;
+        &lt;cd-tab-button&gt;Tab 1&lt;/cd-tab-button&gt;
+        &lt;cd-tab-content&gt;Tab 1 is displayed !&lt;/cd-tab-content&gt;
+    &lt;/cd-tab&gt;
+    &lt;cd-tab&gt;
+        &lt;cd-tab-button&gt;Tab 2&lt;/cd-tab-button&gt;
+        &lt;cd-tab-content&gt;Tab 2 is displayed !&lt;/cd-tab-content&gt;
+    &lt;/cd-tab&gt;
+&lt;/cd-tabs&gt;
+            </pre>
+
+
+            <h3>Rendering:</h3>
+
+            <div>
+                <cd-tabs>
+                    <cd-tab>
+                        <cd-tab-button>Tab 1</cd-tab-button>
+                        <cd-tab-content>Tab 1 is displayed !</cd-tab-content>
+                    </cd-tab>
+                    <cd-tab>
+                        <cd-tab-button>Tab 2</cd-tab-button>
+                        <cd-tab-content>Tab 2 is displayed !</cd-tab-content>
+                    </cd-tab>
+                </cd-tabs>
+            </div>
+        </section>
+
+        <section>
+            <h1>Installation</h1>
+            <p>You can install <code>cd-tabs</code> using <a href="https://www.npmjs.com/" target="_blank">NPM</a>:</p>
+            <p><code>npm install angular-cd-tabs</code></p>
+            <p>Then, you shall <strong>import</strong> the <code>CdTabsModule</code> in <em>app.module.ts</em>.</p>
+        </section>
+
+    <section>
+        <h1>Licenses</h1>
+        <p>Copyright 2020 (c) clemdesign.<br>
+            The library <code>angular cd-tabs</code> is under <a href="https://opensource.org/licenses/MIT" target="_blank">MIT</a> license.</p>
+    </section>
 </ion-content>
