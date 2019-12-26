@@ -17,6 +17,11 @@ export class AppComponent {
             url: '/',
             icon: 'home'
         },
+        {
+            title: 'Basic Usage',
+            url: '/basic',
+            icon: 'cafe'
+        },
     ];
 
     constructor(private platform: Platform,

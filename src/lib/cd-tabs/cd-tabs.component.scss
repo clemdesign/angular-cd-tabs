@@ -1,3 +1,6 @@
+/**
+ * Content box style
+ */
 .content {
   padding: 0.3rem;
   display: block;
@@ -11,16 +14,46 @@
   transition: opacity 0.2s ease-in-out;
 }
 
+/**
+ * Buttons box style
+ */
 .buttons {
   --color: var(--ion-color-contrast, #333333);
+  --color-selected: var(--color);
+  --color-hover: var(--color);
   --background: var(--ion-color-base, #FFFFFF);
-  --color-selected: var(--ion-color-shade, #DDDDDD);
+  --background-selected: var(--ion-color-shade, #DDDDDD);
   --background-hover: var(--ion-color-tint, #EEEEEE);
+
+  --cd-tabs-padding-v: 1rem;
+  --cd-tabs-padding-h: 0.5rem;
+  --cd-tab-min-height: 50px;
+  --cd-tab-border: 0;
+  --cd-tab-border-radius: 0;
 
   display: flex;
   background: var(--background);
 }
 
-.cd-tabs-vertical {
+.vertical {
   display: block;
+}
+
+.segments {
+  --color: var(--ion-color-base, #333333);
+  --color-selected: var(--ion-color-contrast, #FFFFFF);
+  --color-hover: var(--color-selected);
+  --background: var(--ion-color-contrast, #FFFFFF);
+  --background-selected: var(--ion-color-base, #DDDDDD);
+  --background-hover: var(--ion-color-tint, #EEEEEE);
+
+  --cd-tabs-padding-v: 0.125rem;
+  --cd-tabs-padding-h: 0.4rem;
+  --cd-tab-min-height: 1rem;
+  --cd-tab-border: 1px;
+  --cd-tab-border-radius: 5px;
+
+  cd-tab:first-child {
+    border-radius: 5px 0;
+  }
 }

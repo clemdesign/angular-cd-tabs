@@ -1,4 +1,4 @@
-import {AfterContentInit, AfterViewInit, Component, ContentChildren, ElementRef, Input, QueryList} from '@angular/core';
+import {AfterContentInit, AfterViewInit, Component, ContentChildren, ElementRef, Input, OnInit, QueryList} from '@angular/core';
 import {CdTabComponent} from './cd-tab.component';
 import {NavigationEnd, Router} from '@angular/router';
 import {DomSanitizer} from '@angular/platform-browser';
@@ -6,27 +6,34 @@ import {DomSanitizer} from '@angular/platform-browser';
 @Component({
     selector: 'cd-tabs',
     template: `
-        <div class="buttons" [class.cd-tabs-vertical]="disposition === 'vertical'">
+        <div class="buttons" [class.vertical]="disposition === 'vertical'" [class.segments]="displayMode === 'segment'">
             <ng-content></ng-content>
         </div>
         <div class="content" [class.hidden]="contentHidden" [innerHtml]="contentToDisplay" *ngIf="contentToDisplay"></div>
     `,
     styleUrls: ['./cd-tabs.component.scss'],
 })
-export class CdTabsComponent implements AfterViewInit, AfterContentInit {
+export class CdTabsComponent implements AfterViewInit, AfterContentInit, OnInit {
 
     @ContentChildren(CdTabComponent) tabs: QueryList<CdTabComponent>;
 
     @Input() color?: string;
     @Input() disposition: string;
     @Input() selectMode = 'config';
+    @Input() displayMode = 'none';
 
     constructor(private elt: ElementRef, private router: Router, private sanitizer: DomSanitizer) {
     }
 
     contentToDisplay: any;
     contentHidden = true;
-    className = '';
+
+    ngOnInit() {
+        // style
+        if (this.color) {
+            this.elt.nativeElement.className += 'ion-color ion-color-' + this.color;
+        }
+    }
 
     ngAfterContentInit() {
         this.tabs.toArray().forEach((tabFn) => tabFn.disposition = this.disposition);
@@ -77,11 +84,6 @@ export class CdTabsComponent implements AfterViewInit, AfterContentInit {
             this.selectTab(event, true);
         }));
 
-        // style
-        if (this.color) {
-            this.className += ' ion-color ion-color-' + this.color;
-        }
-        this.elt.nativeElement.className = this.className;
     }
 
     /**

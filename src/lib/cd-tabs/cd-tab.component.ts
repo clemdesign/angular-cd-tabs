@@ -4,9 +4,10 @@ import {CdTabContentComponent} from './cd-tab-content.component';
 
 @Component({
     selector: 'cd-tab',
-    template: `<ng-content></ng-content>`,
+    template: `
+        <ng-content></ng-content>`,
     styles: [
-        `:host {
+            `:host {
             flex: 1;
 
             flex-direction: column;
@@ -21,6 +22,14 @@ import {CdTabContentComponent} from './cd-tab-content.component';
             max-width: 168px;
 
             overflow: hidden;
+
+            border: var(--cd-tab-border) solid var(--color);
+        }`,
+            `:host:first-child {
+            border-radius: var(--cd-tab-border-radius) 0 0 var(--cd-tab-border-radius)
+        }`,
+            `:host:last-child {
+            border-radius: 0 var(--cd-tab-border-radius) var(--cd-tab-border-radius) 0
         }`
     ]
 })
@@ -30,7 +39,8 @@ export class CdTabComponent implements AfterContentInit, OnInit {
 
     @Output() tabButtonClick = new EventEmitter<CdTabComponent>();
 
-    @Input() set selected(value) {
+    @Input()
+    set selected(value) {
         this.active = value;
         if (this.button) {
             this.button.selected = value;
@@ -43,13 +53,15 @@ export class CdTabComponent implements AfterContentInit, OnInit {
     button: any;
     content: any;
 
-    @Input() set disposition(value) {
+    @Input()
+    set disposition(value) {
         if (value === 'vertical') {
             this.elt.nativeElement.style.maxWidth = '100%';
         }
     }
 
-    constructor(private elt: ElementRef) {}
+    constructor(private elt: ElementRef) {
+    }
 
     ngOnInit() {
         if (this.active === undefined) {

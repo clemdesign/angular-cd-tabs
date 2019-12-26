@@ -1,28 +1,26 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {IonicModule} from '@ionic/angular';
-import {FormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
-
-import {HomePage} from './home.page';
 import {CdTabsModule} from '../../lib/cd-tabs/cd-tabs.module';
 import {PrismModule} from '@ngx-prism/core';
+import {BasicPage} from './basic.page';
+
 
 @NgModule({
+    declarations: [BasicPage],
     imports: [
         CommonModule,
-        FormsModule,
         IonicModule,
         RouterModule.forChild([
             {
                 path: '',
-                component: HomePage
+                component: BasicPage
             }
         ]),
         CdTabsModule,
         PrismModule
-    ],
-    declarations: [HomePage]
+    ]
 })
-export class HomePageModule {
+export class BasicPageModule {
 }

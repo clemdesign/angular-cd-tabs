@@ -1,16 +1,18 @@
-import {AfterContentInit, Component, ElementRef} from '@angular/core';
+import {Component, ElementRef, Output} from '@angular/core';
 
 @Component({
     selector: 'cd-tab-content',
     template: `<div hidden><ng-content></ng-content></div>`
 })
-export class CdTabContentComponent implements AfterContentInit {
-    content: string;
+export class CdTabContentComponent {
+    @Output() get content() {
+        if (this.elt && this.elt.nativeElement && this.elt.nativeElement.childNodes[0]) {
+            return this.elt.nativeElement.childNodes[0].innerHTML;
+        }
 
-    constructor(private elt: ElementRef) {
+        return '';
     }
 
-    ngAfterContentInit() {
-        this.content = this.elt.nativeElement.childNodes[0].innerHTML;
+    constructor(private elt: ElementRef) {
     }
 }

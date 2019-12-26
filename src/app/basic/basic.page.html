@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Basic Usage</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <section>
+    <h1>Colors</h1>
+    <div>The <code>cd-tabs</code> component can use <strong>colors</strong> of <a href="https://ionicframework.com/docs/theming/basics" target="_blank">Ionic Themes</a> or custom colors.</div>
+
+    <h3>Ionic colors</h3>
+    <cd-tabs displayMode="segment" color="secondary">
+      <cd-tab>
+        <cd-tab-button>Rendering</cd-tab-button>
+        <cd-tab-content>
+          <div class="ion-padding">
+            <cd-tabs color="primary">
+              <cd-tab>
+                <cd-tab-button>Ionic Tab 1</cd-tab-button>
+              </cd-tab>
+              <cd-tab>
+                <cd-tab-button>Ionic Tab 2</cd-tab-button>
+              </cd-tab>
+            </cd-tabs>
+          </div>
+        </cd-tab-content>
+      </cd-tab>
+      <cd-tab>
+        <cd-tab-button>Code HTML</cd-tab-button>
+        <cd-tab-content>
+          <ngx-prism [language]="'html'" [code]="sampleIonicColor"></ngx-prism>
+        </cd-tab-content>
+      </cd-tab>
+    </cd-tabs>
+
+  </section>
+
+</ion-content>
