@@ -27,6 +27,11 @@ export class AppComponent {
             url: '/component',
             icon: 'grid'
         },
+        {
+            title: 'Ionic Integration',
+            url: '/ionic',
+            icon: 'logo-ionic'
+        },
     ];
 
     constructor(private platform: Platform,

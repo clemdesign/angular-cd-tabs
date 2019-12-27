@@ -18,6 +18,8 @@ export class CdTabButtonComponent implements AfterContentInit {
         return '';
     }
 
+    // TODO: Implement icons alignment
+
     @Input() ripple: string;
     @Input() tab: string;
     @Input() routerLink: Array<string>;

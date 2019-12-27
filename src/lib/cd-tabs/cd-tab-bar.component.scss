@@ -6,7 +6,7 @@
   --background-selected: var(--cd-background-selected, var(--ion-color-shade, #DDDDDD));
   --background-hover: var(--cd-background-hover, var(--ion-color-tint, #EEEEEE));
 
-  --cd-tab-padding-v: 1rem;
+  --cd-tab-padding-v: 0.6rem;
   --cd-tab-padding-h: 0.5rem;
   --cd-tab-min-height: 50px;
   --cd-tab-border: 0;
@@ -27,6 +27,7 @@
 
 .vertical {
   --cd-tab-max-width: 100%;
+  --cd-tab-padding-v: 1rem;
 
   display: block;
   min-width: 150px;
