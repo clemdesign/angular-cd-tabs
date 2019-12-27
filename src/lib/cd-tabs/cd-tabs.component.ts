@@ -8,7 +8,10 @@ import {CdTabButtonComponent} from './cd-tab-button.component';
 
 @Component({
     selector: 'cd-tabs',
-    template: `<ng-content></ng-content>`
+    template: `<div class="tabs-container" [class.vertical]="disposition === 'vertical'"><ng-content></ng-content></div>`,
+    styles: [`.vertical {
+        display: flex;
+    }`]
 })
 export class CdTabsComponent implements AfterContentInit {
 

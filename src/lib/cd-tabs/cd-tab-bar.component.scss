@@ -6,11 +6,12 @@
   --background-selected: var(--cd-background-selected, var(--ion-color-shade, #DDDDDD));
   --background-hover: var(--cd-background-hover, var(--ion-color-tint, #EEEEEE));
 
-  --cd-tabs-padding-v: 1rem;
-  --cd-tabs-padding-h: 0.5rem;
+  --cd-tab-padding-v: 1rem;
+  --cd-tab-padding-h: 0.5rem;
   --cd-tab-min-height: 50px;
   --cd-tab-border: 0;
   --cd-tab-border-radius: 0;
+  --cd-tab-max-width: 168px;
 
   flex: 1;
 
@@ -25,7 +26,11 @@
 }
 
 .vertical {
+  --cd-tab-max-width: 100%;
+
   display: block;
+  min-width: 150px;
+  margin-right: 10px;
 }
 
 .align-center {
@@ -46,8 +51,8 @@
   --background-selected: var(--cd-background-selected, var(--ion-color-base, #DDDDDD));
   --background-hover: var(--cd-background-hover, var(--ion-color-tint, #EEEEEE));
 
-  --cd-tabs-padding-v: 0.125rem;
-  --cd-tabs-padding-h: 0.4rem;
+  --cd-tab-padding-v: 0.125rem;
+  --cd-tab-padding-h: 0.4rem;
   --cd-tab-min-height: 1rem;
   --cd-tab-border: 1px;
   --cd-tab-border-radius: 5px;
