@@ -25,7 +25,7 @@ export class CdTabsComponent implements AfterContentInit {
     @ContentChild(CdTabBarComponent, {static: false}) tabBar: CdTabBarComponent;
     @ContentChildren(CdTabContentComponent) tabsContent: QueryList<CdTabContentComponent>;
 
-    @Output() onTabChanged = new EventEmitter<CdTabInterface|null>();
+    @Output() tabChangedEvent = new EventEmitter<CdTabInterface|null>();
 
     @Input() selectMode = 'config';
     @Input() displayMode = 'default';
@@ -149,7 +149,7 @@ export class CdTabsComponent implements AfterContentInit {
      * @param {CdTabContentComponent} tabCnt
      */
     private emitTabChanged(tabBar: CdTabBarInterface, tabCnt: CdTabContentComponent) {
-        this.onTabChanged.emit({
+        this.tabChangedEvent.emit({
             num: tabBar.num,
             tabId: tabBar.tabId,
             tabButton: tabBar.tabButton,

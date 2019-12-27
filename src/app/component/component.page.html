@@ -6,16 +6,17 @@
 
 <ion-content class="ion-padding">
   <section>
-    <p>The <code>CdTabsComponent</code> component is organized under several sub-components:</p>
+    <p>The <a href="/component#cd-tabs">CdTabsComponent</a> component is organized under several <strong>sub-components</strong> and <strong>interfaces</strong>:</p>
     <ul>
-      <li><code>CdTabBarComponent</code>: used to organize the tab buttons.</li>
-      <li><code>CdTabButtonComponent</code>: used to define the tab button content.</li>
-      <li><code>CdTabContentComponent</code>: used to define the tab content.</li>
+      <li><a href="/component#cd-tab-bar">CdTabBarComponent</a>: which list all buttons used by tabs definition.</li>
+      <li><a href="/component#cd-tab-button">CdTabButtonComponent</a>: a tab button definition.</li>
+      <li><a href="/component#cd-tab-content">CdTabContentComponent</a>: a tab content definition.</li>
+      <li><a href="/component#cd-tab-interface">CdTabInterface</a>: a tab interface for interaction with component.</li>
     </ul>
   </section>
 
   <ion-card class="ion-padding">
-    <ion-card-title>CdTabsComponent</ion-card-title>
+    <ion-card-title id="cd-tabs">CdTabsComponent</ion-card-title>
     <ion-card-subtitle>Selector: <strong>cd-tabs</strong></ion-card-subtitle>
     <ion-card-header>The <code>CdTabsComponent</code> component is the entry point of the tabs definition.</ion-card-header>
     <ion-card-content>
@@ -27,7 +28,7 @@
         <tr class="info">
           <td>Description</td>
           <td>
-            Set-up the autoselection mode at initialization:
+            <code>String</code>: set-up the autoselection mode at initialization:
             <ul>
               <li><strong>config</strong>: use the configuration to auto select the activated tab (default).</li>
               <li><strong>router</strong>: use router path matching to auto select the activated tab.</li>
@@ -40,7 +41,7 @@
         <tr class="info">
           <td>Description</td>
           <td>
-            Set-up the display mode of tabs:
+            <code>String</code>: set-up the display mode of tabs:
             <ul>
               <li><strong>default</strong>: display tabs in default format.</li>
               <li><strong>segments</strong>: display tabs as <a href="https://ionicframework.com/docs/api/segment" target="_blank">Ionic
@@ -55,7 +56,7 @@
         <tr class="info">
           <td>Description</td>
           <td>
-            Set-up the disposition of tabs:
+            <code>String</code>: set-up the disposition of tabs:
             <ul>
               <li><strong>left</strong>: align tab buttons on left side (default).</li>
               <li><strong>center</strong>: align tab buttons on center side.</li>
@@ -111,10 +112,10 @@
         </tr>
       </table>
 
-      <h3 id="event">Events</h3>
+      <h3>Events</h3>
       <table class="table">
         <tr class="info">
-          <td>onTabChanged</td>
+          <td>tabChangedEvent</td>
           <td>
             <p>Emitted when the tab has changed.</p>
             <p>Emit the <code>CdTabInterface</code> event.</p>
@@ -122,7 +123,150 @@
         </tr>
       </table>
     </ion-card-content>
+  </ion-card>
 
+  <ion-card class="ion-padding">
+    <ion-card-title id="cd-tab-bar">CdTabBarComponent</ion-card-title>
+    <ion-card-subtitle>Selector: <strong>cd-tab-bar</strong></ion-card-subtitle>
+    <ion-card-header>The <code>CdTabBarComponent</code> component allow you to define and structure all tab buttons for your implementation.</ion-card-header>
+    <ion-card-content>
+      <h3>Properties</h3>
+      <table class="table">
+        <tr class="heading">
+          <td colspan="2">color</td>
+        </tr>
+        <tr class="info">
+          <td>Description</td>
+          <td>
+            <p><code>String</code>: define the <a href="https://ionicframework.com/docs/theming/basics#colors" target="_blank">Ionic</a> color used for tab-bar.</p>
+            <p>You can define CSS variables for standalone integration.</p>
+          </td>
+        </tr>
+      </table>
+
+      <h3>CSS variables</h3>
+      <table class="table">
+        <tr class="info">
+          <td>--cd-color</td>
+          <td>Color of the tab button font.</td>
+        </tr>
+        <tr class="info">
+          <td>--cd-color-selected</td>
+          <td>Color of the tab button font when the tab is selected.</td>
+        </tr>
+        <tr class="info">
+          <td>--cd-color-hover</td>
+          <td>Color of the tab button font when the mouse over the tab.</td>
+        </tr>
+        <tr class="info">
+          <td>--cd-background</td>
+          <td>Color of the background tab button and bar.</td>
+        </tr>
+        <tr class="info">
+          <td>--cd-background-selected</td>
+          <td>Color of the background tab button when the tab is selected.</td>
+        </tr>
+        <tr class="info">
+          <td>--cd-background-hover</td>
+          <td>Color of the background tab button when the mouse over the tab.</td>
+        </tr>
+      </table>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="ion-padding">
+    <ion-card-title id="cd-tab-button">CdTabButtonComponent</ion-card-title>
+    <ion-card-subtitle>Selector: <strong>cd-tab-button</strong></ion-card-subtitle>
+    <ion-card-header>The <code>CdTabButtonComponent</code> component allow you to define the button of tabs for your implementation.</ion-card-header>
+    <ion-card-content>
+      <h3>Properties</h3>
+      <table class="table">
+        <tr class="heading">
+          <td colspan="2">ripple</td>
+        </tr>
+        <tr class="info">
+          <td>Description</td>
+          <td>
+            <p><code>String</code>: define the ripple effect when button is clicked:</p>
+            <ul>
+              <li><code>default</code>: no ripple effect applied.</li>
+              <li><code>unbounded</code>: the unbounded ripple effect is applied.</li>
+              <li><code>bounded</code>: the bounded ripple effect is applied.</li>
+            </ul>
+          </td>
+        </tr>
+        <tr class="heading">
+          <td colspan="2">routerLink</td>
+        </tr>
+        <tr class="info">
+          <td>Description</td>
+          <td>
+            <code>Array&lt;String&gt;</code>: Define the link to activate by Angular <a href="https://angular.io/guide/router" target="_blank">Router</a>.
+          </td>
+        </tr>
+        <tr class="heading">
+          <td colspan="2">selected</td>
+        </tr>
+        <tr class="info">
+          <td>Description</td>
+          <td>
+            <code>Boolean</code>: activate (<code>true</code>) the tab at start-up if the parameter <strong>selectMode</strong> is set to <code>config</code>.
+          </td>
+        </tr>
+        <tr class="heading">
+          <td colspan="2">tab</td>
+        </tr>
+        <tr class="info">
+          <td>Description</td>
+          <td><code>String</code>: define the <strong>tab id</strong> to activate when clicked.</td>
+        </tr>
+      </table>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="ion-padding">
+    <ion-card-title id="cd-tab-content">CdTabContentComponent</ion-card-title>
+    <ion-card-subtitle>Selector: <strong>cd-tab-content</strong></ion-card-subtitle>
+    <ion-card-header>The <code>CdTabContentComponent</code> component allow you to define the content of tabs for your implementation.</ion-card-header>
+    <ion-card-content>
+      <h3>Properties</h3>
+      <table class="table">
+        <tr class="heading">
+          <td colspan="2">id</td>
+        </tr>
+        <tr class="info">
+          <td>Description</td>
+          <td><code>String</code>: define the <strong>tab id</strong> linked to <code>tab</code> property of <strong>CdTabButtonComponent</strong>.</td>
+        </tr>
+      </table>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="ion-padding">
+    <ion-card-title id="cd-tab-interface">CdTabInterface</ion-card-title>
+    <ion-card-subtitle>Interface</ion-card-subtitle>
+    <ion-card-header>The <code>CdTabInterface</code> is the interface used for interaction with <strong>CdTabsComponent</strong>.</ion-card-header>
+    <ion-card-content>
+      <h3>Fields</h3>
+      <table class="table">
+        <tr class="info">
+          <td>num</td>
+          <td><code>Number</code>: the tab index in list.</td>
+        </tr>
+        <tr class="info">
+          <td>tabId</td>
+          <td><code>String</code>: the tab id.</td>
+        </tr>
+        <tr class="info">
+          <td>tabButton</td>
+          <td><code>CdTabButtonComponent</code>: the tab button.</td>
+        </tr>
+        <tr class="info">
+          <td>tabContent</td>
+          <td><code>CdTabContentComponent</code>: the tab content.</td>
+        </tr>
+      </table>
+    </ion-card-content>
   </ion-card>
 
 </ion-content>

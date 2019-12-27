@@ -216,7 +216,7 @@ export class CdTabBarComponent implements AfterViewInit, OnInit {
         }
 
         // notify the cd-tabs component for tab selection
-        this.onTabSelected(tabToSelect);
+        this.emitTabSelected(tabToSelect);
     }
 
     /**
@@ -230,7 +230,7 @@ export class CdTabBarComponent implements AfterViewInit, OnInit {
      * Emit the event {tabSelectedEvent}
      * @param {CdTabButtonComponent} selectedTab
      */
-    private onTabSelected(selectedTab: CdTabButtonComponent) {
+    private emitTabSelected(selectedTab: CdTabButtonComponent) {
         this.tabSelectedEvent.emit({
             num: this.tabsButton.toArray().indexOf(selectedTab),
             tabId: selectedTab.tab ? selectedTab.tab : null,
