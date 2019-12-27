@@ -5,6 +5,7 @@ import {RouterModule} from '@angular/router';
 import {CdTabsModule} from '../../lib/cd-tabs/cd-tabs.module';
 import {PrismModule} from '@ngx-prism/core';
 import {BasicPage} from './basic.page';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import {BasicPage} from './basic.page';
                 component: BasicPage
             }
         ]),
+        FormsModule,
         CdTabsModule,
         PrismModule
     ]

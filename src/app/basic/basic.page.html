@@ -10,12 +10,13 @@
     <div>The <code>cd-tabs</code> component can use <strong>colors</strong> of <a href="https://ionicframework.com/docs/theming/basics" target="_blank">Ionic Themes</a> or custom colors.</div>
 
     <h3>Ionic colors</h3>
+    <p>In a <strong>Ionic app</strong>, you can use the input parameter <code>color</code> of <strong>CdTabsComponent</strong>. </p>
     <cd-tabs displayMode="segment" color="secondary">
       <cd-tab>
         <cd-tab-button>Rendering</cd-tab-button>
         <cd-tab-content>
           <div class="ion-padding">
-            <cd-tabs color="primary">
+            <cd-tabs [color]="ionicColor">
               <cd-tab>
                 <cd-tab-button>Ionic Tab 1</cd-tab-button>
               </cd-tab>
@@ -29,7 +30,45 @@
       <cd-tab>
         <cd-tab-button>Code HTML</cd-tab-button>
         <cd-tab-content>
-          <ngx-prism [language]="'html'" [code]="sampleIonicColor"></ngx-prism>
+          <ngx-prism [language]="'html'" [code]="samples.colors.ionic"></ngx-prism>
+        </cd-tab-content>
+      </cd-tab>
+    </cd-tabs>
+
+    <div class="ion-padding-top">
+      Use the color: <br>
+      <ion-button color="primary" (click)="onIonicColorChange('primary')">Primary</ion-button>
+      <ion-button color="secondary" (click)="onIonicColorChange('secondary')">Secondary</ion-button>
+    </div>
+
+    <h3>Custom colors</h3>
+    <p>In <strong>standalone app</strong>, you can customize the colors of <code>cd-tabs</code> by defining variables in a CSS class. </p>
+    <cd-tabs displayMode="segment" color="secondary">
+      <cd-tab>
+        <cd-tab-button>Rendering</cd-tab-button>
+        <cd-tab-content>
+          <div class="ion-padding">
+            <cd-tabs class="standalone-tabs">
+              <cd-tab>
+                <cd-tab-button>Standalone Tab 1</cd-tab-button>
+              </cd-tab>
+              <cd-tab>
+                <cd-tab-button>Standalone Tab 2</cd-tab-button>
+              </cd-tab>
+            </cd-tabs>
+          </div>
+        </cd-tab-content>
+      </cd-tab>
+      <cd-tab>
+        <cd-tab-button>Code HTML</cd-tab-button>
+        <cd-tab-content>
+          <ngx-prism [language]="'html'" [code]="samples.colors.standalone.html"></ngx-prism>
+        </cd-tab-content>
+      </cd-tab>
+      <cd-tab>
+        <cd-tab-button>Code CSS</cd-tab-button>
+        <cd-tab-content>
+          <ngx-prism [language]="'css'" [code]="samples.colors.standalone.css"></ngx-prism>
         </cd-tab-content>
       </cd-tab>
     </cd-tabs>

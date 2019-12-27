@@ -17,21 +17,29 @@ export class CdTabsComponent implements AfterViewInit, AfterContentInit, OnInit 
 
     @ContentChildren(CdTabComponent) tabs: QueryList<CdTabComponent>;
 
-    @Input() color?: string;
     @Input() disposition: string;
     @Input() selectMode = 'config';
     @Input() displayMode = 'none';
+
+    // style
+    @Input() set color(value) {
+        if (value && this.elt && this.elt.nativeElement) {
+            this.elt.nativeElement.className = this.baseClass + ' ion-color ion-color-' + value;
+            console.log(this.elt.nativeElement.className);
+            // TODO: Reorganize cd-tabs organization with cd-tabs-bar ...
+        }
+    }
 
     constructor(private elt: ElementRef, private router: Router, private sanitizer: DomSanitizer) {
     }
 
     contentToDisplay: any;
     contentHidden = true;
+    baseClass = '';
 
     ngOnInit() {
-        // style
-        if (this.color) {
-            this.elt.nativeElement.className += 'ion-color ion-color-' + this.color;
+        if (this.elt && this.elt.nativeElement) {
+            this.baseClass = this.elt.nativeElement.className;
         }
     }
 

@@ -18,12 +18,12 @@
  * Buttons box style
  */
 .buttons {
-  --color: var(--ion-color-contrast, #333333);
-  --color-selected: var(--color);
-  --color-hover: var(--color);
-  --background: var(--ion-color-base, #FFFFFF);
-  --background-selected: var(--ion-color-shade, #DDDDDD);
-  --background-hover: var(--ion-color-tint, #EEEEEE);
+  --color: var(--cd-color, var(--ion-color-contrast, #333333));
+  --color-selected: var(--cd-color-selected, var(--color));
+  --color-hover: var(--cd-color-hover, var(--color));
+  --background: var(--cd-background, var(--ion-color-base, #FFFFFF));
+  --background-selected: var(--cd-background-selected, var(--ion-color-shade, #DDDDDD));
+  --background-hover: var(--cd-background-hover, var(--ion-color-tint, #EEEEEE));
 
   --cd-tabs-padding-v: 1rem;
   --cd-tabs-padding-h: 0.5rem;
@@ -40,12 +40,12 @@
 }
 
 .segments {
-  --color: var(--ion-color-base, #333333);
-  --color-selected: var(--ion-color-contrast, #FFFFFF);
-  --color-hover: var(--color-selected);
-  --background: var(--ion-color-contrast, #FFFFFF);
-  --background-selected: var(--ion-color-base, #DDDDDD);
-  --background-hover: var(--ion-color-tint, #EEEEEE);
+  --color: var(--cd-color, var(--ion-color-base, #333333));
+  --color-selected: var(--cd-color-selected, var(--ion-color-contrast, #FFFFFF));
+  --color-hover: var(--cd-color-hover, var(--color-selected));
+  --background: var(--cd-background, var(--ion-color-contrast, #FFFFFF));
+  --background-selected: var(--cd-background-selected, var(--ion-color-base, #DDDDDD));
+  --background-hover: var(--cd-background-hover, var(--ion-color-tint, #EEEEEE));
 
   --cd-tabs-padding-v: 0.125rem;
   --cd-tabs-padding-h: 0.4rem;
