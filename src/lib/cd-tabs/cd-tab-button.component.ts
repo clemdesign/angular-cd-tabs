@@ -4,45 +4,55 @@ import {AfterContentInit, Component, ElementRef, EventEmitter, HostListener, Inp
     selector: 'cd-tab-button',
     styleUrls: ['./cd-tab-button.component.scss'],
     template: `
-        <a><ng-content></ng-content></a>`,
+        <ng-content></ng-content>`,
     encapsulation: ViewEncapsulation.None
 })
 export class CdTabButtonComponent implements AfterContentInit {
-    @Output() buttonClick = new EventEmitter();
+    @Output() buttonClick = new EventEmitter<CdTabButtonComponent>();
+
+    @Output()
+    get content() {
+        if (this.eltRef && this.eltRef.nativeElement && this.eltRef.nativeElement.childNodes[0]) {
+            return this.eltRef.nativeElement.childNodes[0].innerHTML;
+        }
+        return '';
+    }
 
     @Input() ripple: string;
+    @Input() tab: string;
+    @Input() routerLink: Array<string>;
 
-    @Input() set selected(value) {
-        this.selectedStatus = value;
+    @Input()
+    set selected(value) {
+        this.active = value;
         this.buildCss();
     }
 
-    selectedStatus = false;
-    content: string;
-    el: HTMLElement;
+    active: boolean;
+    elt: HTMLElement;
 
     @HostListener('click', ['$event.x', '$event.y'])
     onClick(coordX, coordY) {
-        this.buttonClick.emit();
+        this.buttonClick.emit(this);
 
         if (this.ripple === 'unbounded' || this.ripple === 'bounded') {
             this.addRipple(coordX, coordY);
         }
     }
 
-    constructor(private elt: ElementRef) {}
+    constructor(private eltRef: ElementRef) {
+    }
 
     private get hasLabel() {
-        return !!this.el.querySelector('ion-label');
+        return !!this.elt.querySelector('ion-label');
     }
 
     private get hasIcon() {
-        return !!this.el.querySelector('ion-icon');
+        return !!this.elt.querySelector('ion-icon');
     }
 
     ngAfterContentInit() {
-        this.el = this.elt.nativeElement;
-        this.content = this.elt.nativeElement.childNodes[0].innerHTML;
+        this.elt = this.eltRef.nativeElement;
 
         this.buildCss();
     }
@@ -55,7 +65,7 @@ export class CdTabButtonComponent implements AfterContentInit {
      */
     async addRipple(x: number, y: number) {
         return new Promise<() => void>(resolve => {
-            const rect = this.elt.nativeElement.getBoundingClientRect();
+            const rect = this.elt.getBoundingClientRect();
             const width = rect.width;
             const height = rect.height;
             const hypotenuse = Math.sqrt(width * width + height * height);
@@ -83,12 +93,13 @@ export class CdTabButtonComponent implements AfterContentInit {
             style.setProperty('--final-scale', `${finalScale}`);
             style.setProperty('--translate-end', `${moveX}px, ${moveY}px`);
 
-            const container = this.el.shadowRoot || this.el;
+            const container = this.elt.shadowRoot || this.elt;
             container.appendChild(div);
             setTimeout(() => {
                 removeRipple(div);
 
-                resolve(() => {});
+                resolve(() => {
+                });
             }, 225 + 100);
         });
     }
@@ -98,7 +109,7 @@ export class CdTabButtonComponent implements AfterContentInit {
      */
     private buildCss() {
         let className = 'cd-tab-button ';
-        if (this.selectedStatus) {
+        if (this.active) {
             className += 'cd-tab-selected ';
         }
         if (this.hasIcon) {
@@ -114,7 +125,7 @@ export class CdTabButtonComponent implements AfterContentInit {
             className += 'cd-tab-has-icon-only ';
         }
 
-        this.el.className = className;
+        this.elt.className = className;
     }
 }
 

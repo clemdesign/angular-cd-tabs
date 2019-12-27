@@ -11,22 +11,18 @@ export class BasicPage {
 
     samples = {
         colors: {
-            ionic: `<cd-tabs color="primary">
-  <cd-tab>
+            ionic: `<cd-tabs>
+  <cd-tab-bar color="primary">
     <cd-tab-button>Ionic Tab 1</cd-tab-button>
-  </cd-tab>
-  <cd-tab>
     <cd-tab-button>Ionic Tab 2</cd-tab-button>
-  </cd-tab>
+  </cd-tab-bar>
 </cd-tabs>`,
             standalone: {
-                html: `<cd-tabs class="standalone-tabs">
-  <cd-tab>
+                html: `<cd-tabs>
+  <cd-tab-bar class="standalone-tabs">
     <cd-tab-button>Ionic Tab 1</cd-tab-button>
-  </cd-tab>
-  <cd-tab>
     <cd-tab-button>Ionic Tab 2</cd-tab-button>
-  </cd-tab>
+  </cd-tab-bar>
 </cd-tabs>`,
                 css: `.standalone-tabs {
   --cd-color: #FFFFFF;

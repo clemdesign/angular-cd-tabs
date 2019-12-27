@@ -7,13 +7,13 @@
         </ion-toolbar>
       </ion-header>
       <ion-content color="medium">
-        <cd-tabs color="medium" disposition="vertical" selectMode="router">
-          <cd-tab [routerLink]="[p.url]" auto-hide="false" *ngFor="let p of appMenu">
-            <cd-tab-button ripple="bounded">
+        <cd-tabs disposition="vertical" selectMode="router">
+          <cd-tab-bar auto-hide="false" color="medium">
+            <cd-tab-button ripple="bounded" [routerLink]="[p.url]" *ngFor="let p of appMenu">
               <ion-icon slot="start" [name]="p.icon"></ion-icon>
               <ion-label>{{p.title}}</ion-label>
             </cd-tab-button>
-          </cd-tab>
+          </cd-tab-bar>
         </cd-tabs>
       </ion-content>
     </ion-menu>

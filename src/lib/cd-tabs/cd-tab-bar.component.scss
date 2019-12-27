@@ -1,23 +1,4 @@
-/**
- * Content box style
- */
-.content {
-  padding: 0.3rem;
-  display: block;
-
-  transition: opacity 0.2s ease-in-out;
-}
-
-.hidden {
-  display: none;
-
-  transition: opacity 0.2s ease-in-out;
-}
-
-/**
- * Buttons box style
- */
-.buttons {
+.bar-container {
   --color: var(--cd-color, var(--ion-color-contrast, #333333));
   --color-selected: var(--cd-color-selected, var(--color));
   --color-hover: var(--cd-color-hover, var(--color));
@@ -31,12 +12,30 @@
   --cd-tab-border: 0;
   --cd-tab-border-radius: 0;
 
+  flex: 1;
+
+  align-items: left;
+  justify-content: left;
+
   display: flex;
+  position: relative;
+  outline: none;
+
   background: var(--background);
 }
 
 .vertical {
   display: block;
+}
+
+.align-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.align-right {
+  align-items: right;
+  justify-content: right;
 }
 
 .segments {
@@ -53,7 +52,8 @@
   --cd-tab-border: 1px;
   --cd-tab-border-radius: 5px;
 
-  cd-tab:first-child {
+  cd-tab-button:first-child {
     border-radius: 5px 0;
   }
 }
+

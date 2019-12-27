@@ -3,23 +3,36 @@
 
   outline: none;
 
-  background: var(--background);
-  color: var(--color);
-  padding: var(--cd-tabs-padding-v, 1rem) var(--cd-tabs-padding-h, 0.5rem);
-  min-height: var(--cd-tab-min-height, 50px);
-
-  width: 100%;
   height: 100%;
+  width: 100%;
+  max-height: 70px;
+  max-width: 168px;
   text-align: center;
   cursor: pointer;
 
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  position: relative;
 
   overflow: hidden;
   box-sizing: border-box;
   -webkit-user-drag: none;
+
+  background: var(--background);
+  color: var(--color);
+  padding: var(--cd-tabs-padding-v, 1rem) var(--cd-tabs-padding-h, 0.5rem);
+  min-height: var(--cd-tab-min-height, 50px);
+  border: var(--cd-tab-border) solid var(--color);
+
+  &:first-child {
+    border-radius: var(--cd-tab-border-radius) 0 0 var(--cd-tab-border-radius);
+  }
+
+  &:last-child {
+    border-radius: 0 var(--cd-tab-border-radius) var(--cd-tab-border-radius) 0;
+  }
 
   &:hover {
     color: var(--color-hover);
@@ -28,23 +41,6 @@
 
   // Tab Button: Native
   // --------------------------------------------------
-
-  a {
-    margin: 0;
-    padding: 0;
-    border: 0;
-
-    outline: none;
-    background: transparent;
-    text-decoration: none;
-
-    overflow: hidden;
-    box-sizing: border-box;
-    -webkit-user-drag: none;
-
-    display: flex;
-    flex-direction: column;
-  }
 
   ion-label,
   ion-icon {
@@ -153,34 +149,8 @@
   opacity: .4;
 }
 
-
-// Tab Button: Layout
+// Frame
 // --------------------------------------------------
-
-.cd-tab-layout-icon-start {
-  flex-direction: row;
-}
-
-.cd-tab-layout-icon-end {
-  flex-direction: row-reverse;
-}
-
-.cd-tab-layout-icon-bottom {
-  flex-direction: column-reverse;
-}
-
-.cd-tab-layout-icon-hide ion-icon {
-  display: none;
-}
-
-.cd-tab-layout-label-hide ion-label {
-  display: none;
-}
-
-ion-ripple-effect {
-  color: var(--ripple-color);
-}
-
 
 @keyframes rippleAnimation {
   from {

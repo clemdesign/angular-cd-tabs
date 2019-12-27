@@ -32,19 +32,18 @@
             <h3>Code:</h3>
             <ngx-prism [language]="'html'" [code]="sample"></ngx-prism>
 
-
             <h3>Rendering:</h3>
 
             <div>
                 <cd-tabs>
-                    <cd-tab>
+                    <cd-tab-bar>
                         <cd-tab-button>Tab 1</cd-tab-button>
-                        <cd-tab-content>Tab 1 is displayed !</cd-tab-content>
-                    </cd-tab>
-                    <cd-tab>
                         <cd-tab-button>Tab 2</cd-tab-button>
-                        <cd-tab-content>Tab 2 is displayed !</cd-tab-content>
-                    </cd-tab>
+                        <cd-tab-button>Tab 3</cd-tab-button>
+                    </cd-tab-bar>
+                    <cd-tab-content>Tab 1 is displayed !</cd-tab-content>
+                    <cd-tab-content>Tab 2 is displayed !</cd-tab-content>
+                    <cd-tab-content>Tab 3 is displayed !</cd-tab-content>
                 </cd-tabs>
             </div>
         </section>
