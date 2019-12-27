@@ -1,0 +1,128 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Components API</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <section>
+    <p>The <code>CdTabsComponent</code> component is organized under several sub-components:</p>
+    <ul>
+      <li><code>CdTabBarComponent</code>: used to organize the tab buttons.</li>
+      <li><code>CdTabButtonComponent</code>: used to define the tab button content.</li>
+      <li><code>CdTabContentComponent</code>: used to define the tab content.</li>
+    </ul>
+  </section>
+
+  <ion-card class="ion-padding">
+    <ion-card-title>CdTabsComponent</ion-card-title>
+    <ion-card-subtitle>Selector: <strong>cd-tabs</strong></ion-card-subtitle>
+    <ion-card-header>The <code>CdTabsComponent</code> component is the entry point of the tabs definition.</ion-card-header>
+    <ion-card-content>
+      <h3>Properties</h3>
+      <table class="table">
+        <tr class="heading">
+          <td colspan="2">selectMode</td>
+        </tr>
+        <tr class="info">
+          <td>Description</td>
+          <td>
+            Set-up the autoselection mode at initialization:
+            <ul>
+              <li><strong>config</strong>: use the configuration to auto select the activated tab (default).</li>
+              <li><strong>router</strong>: use router path matching to auto select the activated tab.</li>
+            </ul>
+          </td>
+        </tr>
+        <tr class="heading">
+          <td colspan="2">displayMode</td>
+        </tr>
+        <tr class="info">
+          <td>Description</td>
+          <td>
+            Set-up the display mode of tabs:
+            <ul>
+              <li><strong>default</strong>: display tabs in default format.</li>
+              <li><strong>segments</strong>: display tabs as <a href="https://ionicframework.com/docs/api/segment" target="_blank">Ionic
+                Segments</a>.
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr class="heading">
+          <td colspan="2">disposition</td>
+        </tr>
+        <tr class="info">
+          <td>Description</td>
+          <td>
+            Set-up the disposition of tabs:
+            <ul>
+              <li><strong>left</strong>: align tab buttons on left side (default).</li>
+              <li><strong>center</strong>: align tab buttons on center side.</li>
+              <li><strong>right</strong>: align tab buttons on right side.</li>
+              <li><strong>vertical</strong>: display tab buttons in vertical bar.</li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+
+      <h3>Methods</h3>
+      <table class="table">
+        <tr class="heading">
+          <td colspan="2">select</td>
+        </tr>
+        <tr class="info">
+          <td>Description</td>
+          <td>
+            Select a <strong>tab</strong> by the <em>reference index number</em>, or <em>tab id</em> or <em>CdTabButtonComponent</em> reference.
+          </td>
+        </tr>
+        <tr class="info">
+          <td>Signature</td>
+          <td>
+            <code>select(tab: number | string | CdTabButtonComponent) => Promise&lt;boolean&gt;</code>
+          </td>
+        </tr>
+        <tr class="heading">
+          <td colspan="2">getSelected</td>
+        </tr>
+        <tr class="info">
+          <td>Description</td>
+          <td>Get the currently selected tab.</td>
+        </tr>
+        <tr class="info">
+          <td>Signature</td>
+          <td>
+            <code>getSelected() => Promise&lt;CdTabInterface | null&gt;</code>
+          </td>
+        </tr>
+        <tr class="heading">
+          <td colspan="2">getTab</td>
+        </tr>
+        <tr class="info">
+          <td>Description</td>
+          <td>Get a specific tab by the <em>reference index number</em> of its tab property, the <em>tab id</em> or the <em>CdTabButtonComponent</em>.</td>
+        </tr>
+        <tr class="info">
+          <td>Signature</td>
+          <td>
+            <code>getTab(tab: number | string | CdTabButtonComponent) => Promise&lt;CdTabInterface | null&gt;</code>
+          </td>
+        </tr>
+      </table>
+
+      <h3 id="event">Events</h3>
+      <table class="table">
+        <tr class="info">
+          <td>onTabChanged</td>
+          <td>
+            <p>Emitted when the tab has changed.</p>
+            <p>Emit the <code>CdTabInterface</code> event.</p>
+          </td>
+        </tr>
+      </table>
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>

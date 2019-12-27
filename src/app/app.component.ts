@@ -22,6 +22,11 @@ export class AppComponent {
             url: '/basic',
             icon: 'cafe'
         },
+        {
+            title: 'Components API',
+            url: '/component',
+            icon: 'grid'
+        },
     ];
 
     constructor(private platform: Platform,

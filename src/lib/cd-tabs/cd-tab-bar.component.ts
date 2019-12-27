@@ -6,22 +6,28 @@ import {
 import {CdTabButtonComponent} from './cd-tab-button.component';
 import {NavigationEnd, Router} from '@angular/router';
 
+export interface CdTabBarInterface {
+    num: number;
+    tabId: string;
+    tabButton: CdTabButtonComponent;
+}
+
 @Component({
     selector: 'cd-tab-bar',
     template: `
-        <div class="bar-container"
-             [class.vertical]="disposition === 'vertical'"
-             [class.align-center]="disposition === 'center'"
-             [class.align-right]="disposition === 'right'"
-             [class.segments]="displayMode === 'segments'">
-            <ng-content></ng-content>
-        </div>`,
+      <div class="bar-container"
+           [class.vertical]="disposition === 'vertical'"
+           [class.align-center]="disposition === 'center'"
+           [class.align-right]="disposition === 'right'"
+           [class.segments]="displayMode === 'segments'">
+        <ng-content></ng-content>
+      </div>`,
     styleUrls: ['./cd-tab-bar.component.scss']
 })
 export class CdTabBarComponent implements AfterViewInit, OnInit {
     @ContentChildren(CdTabButtonComponent) tabsButton: QueryList<CdTabButtonComponent>;
 
-    @Output() tabSelectedEvent = new EventEmitter<{ num: number; tabId: string; tab: CdTabButtonComponent }>();
+    @Output() tabSelectedEvent = new EventEmitter<CdTabBarInterface>();
 
     @Output()
     get buttons() {
@@ -105,6 +111,97 @@ export class CdTabBarComponent implements AfterViewInit, OnInit {
     }
 
     /**
+     * Select a tab according number, tab id or CdTabButtonComponent
+     * @param {number | string | CdTabButtonComponent} tab
+     * @returns {Promise<boolean>}
+     */
+    public select(tab: number | string | CdTabButtonComponent) {
+        return new Promise<boolean>((resolve) => {
+            this.getTab(tab).then((result) => {
+                if (result !== null) {
+                    this.selectTab(result.tabButton, true);
+                    resolve(true);
+                } else {
+                    resolve(false);
+                }
+            }).catch(() => resolve(true));
+        });
+    }
+
+    /**
+     * Get selected component
+     * @returns {Promise<CdTabBarInterface>}
+     */
+    public getSelected() {
+        return new Promise<CdTabBarInterface|null>((resolve) => {
+            let activeFound = false;
+            let index = 0;
+            this.tabsButton.toArray().forEach((tabFn) => {
+                if (tabFn.active === true) {
+                    resolve({
+                        num: index,
+                        tabId: tabFn.tab ? tabFn.tab : null,
+                        tabButton: tabFn
+                    });
+                    activeFound = true;
+                }
+                index++;
+            });
+            if (activeFound === false) {
+                resolve(null);
+            }
+        });
+    }
+
+    /**
+     * Get the tab according number, tab Id or CdTabButtonComponent
+     * @param {number | string | CdTabButtonComponent} tabRef
+     * @returns {Promise<CdTabBarInterface>}
+     */
+    public getTab(tabRef: number | string | CdTabButtonComponent) {
+        return new Promise<CdTabBarInterface|null>((resolve) => {
+            let tabFound = false;
+            let index = 0;
+            if (typeof tabRef === 'number') {
+                const selectedIndex = tabRef as number;
+                this.tabsButton.toArray().forEach((tabFn) => {
+                    if (index === selectedIndex) {
+                        resolve({
+                            num: index,
+                            tabId: tabFn.tab ? tabFn.tab : null,
+                            tabButton: tabFn
+                        });
+                        tabFound = true;
+                    }
+                    index++;
+                });
+            } else if (typeof tabRef === 'string') {
+                const selectedId = tabRef as string;
+                this.tabsButton.toArray().forEach((tabFn) => {
+                    if (tabFn.tab === selectedId) {
+                        resolve({
+                            num: index,
+                            tabId: tabFn.tab,
+                            tabButton: tabFn
+                        });
+                        tabFound = true;
+                    }
+                    index++;
+                });
+            } else if (tabRef instanceof CdTabButtonComponent) {
+                resolve({
+                    num: this.tabsButton.toArray().indexOf(tabRef),
+                    tabId: tabRef.tab ? tabRef.tab : null,
+                    tabButton: tabRef
+                });
+            }
+            if (tabFound === false) {
+                resolve(null);
+            }
+        });
+    }
+
+    /**
      * Select a tab
      * @param {CdTabButtonComponent} tabToSelect
      * @param {boolean} routing
@@ -131,13 +228,13 @@ export class CdTabBarComponent implements AfterViewInit, OnInit {
 
     /**
      * Emit the event {tabSelectedEvent}
-     * @param selectedTab
+     * @param {CdTabButtonComponent} selectedTab
      */
-    private onTabSelected(selectedTab) {
+    private onTabSelected(selectedTab: CdTabButtonComponent) {
         this.tabSelectedEvent.emit({
             num: this.tabsButton.toArray().indexOf(selectedTab),
             tabId: selectedTab.tab ? selectedTab.tab : null,
-            tab: selectedTab
+            tabButton: selectedTab
         });
     }
 
