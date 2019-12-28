@@ -37,6 +37,11 @@ export class AppComponent {
             url: '/standalone',
             icon: 'switch'
         },
+        {
+            title: 'Common Integration',
+            url: '/common',
+            icon: 'medical'
+        },
     ];
 
     constructor(private platform: Platform,

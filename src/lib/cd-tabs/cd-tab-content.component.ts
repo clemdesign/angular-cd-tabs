@@ -1,12 +1,14 @@
-import {Component, ElementRef, Input, Output} from '@angular/core';
+import {AfterContentInit, Component, ElementRef, Input, Output} from '@angular/core';
 
 @Component({
     selector: 'cd-tab-content',
-    template: `<div [hidden]="!active"><ng-content></ng-content></div>`
+    template: `<div [hidden]="!active" [class]="className"><ng-content></ng-content></div>`
 })
-export class CdTabContentComponent {
+export class CdTabContentComponent implements AfterContentInit {
     @Input() id: string;
     @Input() active = false;
+
+    className: string;
 
     /**
      * Content of tab
@@ -20,4 +22,9 @@ export class CdTabContentComponent {
     }
 
     constructor(private elt: ElementRef) {}
+
+    ngAfterContentInit() {
+        this.className = this.elt.nativeElement.className;
+        this.elt.nativeElement.className = '';
+    }
 }

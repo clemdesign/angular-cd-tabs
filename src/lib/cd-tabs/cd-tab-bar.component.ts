@@ -119,6 +119,7 @@ export class CdTabBarComponent implements AfterViewInit, OnInit {
         return new Promise<boolean>((resolve) => {
             this.getTab(tab).then((result) => {
                 if (result !== null) {
+                    this.deactivateAllTabs();
                     this.selectTab(result.tabButton, true);
                     resolve(true);
                 } else {

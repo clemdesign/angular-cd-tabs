@@ -73,12 +73,12 @@ export class CdTabButtonComponent implements AfterContentInit {
             const height = rect.height;
             const hypotenuse = Math.sqrt(width * width + height * height);
             const maxDim = Math.max(height, width);
-            const maxRadius = this.ripple === 'unbounded' ? maxDim : hypotenuse + PADDING;
+            const maxRadius = this.ripple === 'bounded' ? maxDim : hypotenuse + PADDING;
             const initialSize = Math.floor(maxDim * INITIAL_ORIGIN_SCALE);
             const finalScale = maxRadius / initialSize;
             let posX = x - rect.left;
             let posY = y - rect.top;
-            if (this.ripple === 'unbounded') {
+            if (this.ripple === 'bounded') {
                 posX = width * 0.5;
                 posY = height * 0.5;
             }
