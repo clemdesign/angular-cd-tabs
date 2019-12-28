@@ -7,27 +7,9 @@ import {Component} from '@angular/core';
 })
 export class BasicPage {
 
-    ionicColor = 'primary';
-    ionicColors = [
-        'primary',
-        'secondary',
-        'tertiary',
-        'success',
-        'warning',
-        'danger',
-        'dark',
-        'medium',
-        'light'
-    ];
 
     samples = {
         colors: {
-            ionic: `<cd-tabs>
-  <cd-tab-bar color="primary">
-    <cd-tab-button>Ionic Tab 1</cd-tab-button>
-    <cd-tab-button>Ionic Tab 2</cd-tab-button>
-  </cd-tab-bar>
-</cd-tabs>`,
             standalone: {
                 html: `<cd-tabs>
   <cd-tab-bar class="standalone-tabs">
@@ -63,10 +45,6 @@ export class BasicPage {
     };
 
     constructor() {
-    }
-
-    onIonicColorChange(event) {
-        this.ionicColor = event;
     }
 
 }

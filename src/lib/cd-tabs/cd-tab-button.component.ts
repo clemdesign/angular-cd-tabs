@@ -23,6 +23,7 @@ export class CdTabButtonComponent implements AfterContentInit {
     @Input() ripple: string;
     @Input() tab: string;
     @Input() routerLink: Array<string>;
+    @Input() iconPosition = 'center';
 
     @Input()
     set selected(value) {
@@ -125,6 +126,12 @@ export class CdTabButtonComponent implements AfterContentInit {
         }
         if (!this.hasLabel && this.hasIcon) {
             className += 'cd-tab-has-icon-only ';
+        }
+        if (this.iconPosition === 'start') {
+            className += 'cd-tab-icon-start ';
+        }
+        if (this.iconPosition === 'end') {
+            className += 'cd-tab-icon-end ';
         }
 
         this.elt.className = className;

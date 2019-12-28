@@ -3,7 +3,6 @@
 
   outline: none;
 
-  height: 100%;
   width: 100%;
   max-width: var(--cd-tab-max-width);
   text-align: center;
@@ -21,8 +20,8 @@
 
   background: var(--background);
   color: var(--color);
-  padding: var(--cd-tab-padding-v, 1rem) var(--cd-tab-padding-h, 0.5rem);
   min-height: var(--cd-tab-min-height, 50px);
+  padding: var(--cd-tab-padding-v, 1rem) var(--cd-tab-padding-h, 0.5rem);
   border: var(--cd-tab-border) solid var(--color);
 
   &:first-child {
@@ -128,6 +127,32 @@
 
 .cd-tab-has-label-only ion-label {
   white-space: normal;
+}
+
+.cd-tab-icon-start {
+  flex-direction: row;
+
+  ion-icon {
+    font-size: 1.2rem;
+    margin-right: 5px;
+  }
+
+  ion-label {
+    font-size: 1rem;
+  }
+}
+
+.cd-tab-icon-end {
+  flex-direction: row-reverse;
+
+  ion-icon {
+    font-size: 1.2rem;
+    margin-left: 5px;
+  }
+
+  ion-label {
+    font-size: 1rem;
+  }
 }
 
 // Tab Button: States

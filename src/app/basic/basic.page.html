@@ -17,33 +17,7 @@
         <strong>CdTabsComponent</strong>.
       </ion-card-header>
       <ion-card-content>
-        <cd-tabs displayMode="segments">
-          <cd-tab-bar color="secondary">
-            <cd-tab-button>Rendering</cd-tab-button>
-            <cd-tab-button>Code HTML</cd-tab-button>
-          </cd-tab-bar>
-          <cd-tab-content>
-            <div class="ion-padding">
-              <cd-tabs>
-                <cd-tab-bar [color]="ionicColor">
-                  <cd-tab-button>Ionic Tab 1</cd-tab-button>
-                  <cd-tab-button>Ionic Tab 2</cd-tab-button>
-                </cd-tab-bar>
-              </cd-tabs>
-            </div>
-
-            <div class="ion-padding-top">
-              Use the color: <br>
-              <ion-button *ngFor="let value of ionicColors" color="{{value}}" (click)="onIonicColorChange(value)">
-                {{value|titlecase}}
-              </ion-button>
-            </div>
-
-          </cd-tab-content>
-          <cd-tab-content>
-            <ngx-prism [language]="'html'" [code]="samples.colors.ionic"></ngx-prism>
-          </cd-tab-content>
-        </cd-tabs>
+        Refer to <a href="/ionic">Ionic Integration</a> section for demonstration.
       </ion-card-content>
     </ion-card>
 
