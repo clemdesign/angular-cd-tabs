@@ -89,12 +89,16 @@ export class CdTabBarComponent implements AfterViewInit, OnInit {
                 }
             });
         } else {
-            // get all active tabs
-            const activeTabs = this.tabsButton.filter((tab) => tab.active);
+            // get all active tabs and not disabled
+            const activeTabs = this.tabsButton.filter((tab) => tab.active && !tab.disabled);
 
             // if there is no active tab set, activate the first
             if (activeTabs.length === 0) {
-                this.selectTab(this.tabsButton.first);
+                // get all not disabled tabs
+                const enabledTabs = this.tabsButton.filter((tab) => !tab.disabled);
+                if (enabledTabs.length > 0) {
+                    this.selectTab(enabledTabs[0]);
+                }
             } else {
                 this.selectTab(activeTabs[0]);
             }

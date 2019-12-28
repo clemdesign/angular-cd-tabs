@@ -86,7 +86,13 @@ selectAction() {
     });
 }
 `
-        }
+        },
+        disabled: `<cd-tabs>
+  <cd-tab-bar [color]="'tertiary'">
+    <cd-tab-button [disabled]="true">Disabled</cd-tab-button>
+    <cd-tab-button><i class="fas fa-code"></i></cd-tab-button>
+  </cd-tab-bar>
+</cd-tabs>`
     };
 
     eventMessage = 'No message !';
