@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Standalone Integration
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <section>
+    <h1>Colors, Icons, and Labels</h1>
+    <p><code>CdTabsComponent</code> is designed to work standalone without <a href="https://ionicframework.com/" target="_blank">Ionic
+      Framework</a> integration.</p>
+
+
+    <ion-card class="ion-padding">
+      <ion-card-title>Colors</ion-card-title>
+      <ion-card-subtitle>You can define the <a href="/component#cd-tab-bar">CSS variables</a> to customize the
+        <strong>CdTabBarComponent</strong>.
+      </ion-card-subtitle>
+      <ion-card-content>
+
+        <cd-tabs displayMode="segments">
+          <cd-tab-bar color="secondary">
+            <cd-tab-button>Rendering</cd-tab-button>
+            <cd-tab-button>Code HTML</cd-tab-button>
+            <cd-tab-button>Code CSS</cd-tab-button>
+          </cd-tab-bar>
+          <cd-tab-content>
+            <div class="ion-padding">
+              <cd-tabs>
+                <cd-tab-bar class="standalone-tabs">
+                  <cd-tab-button>Standalone Tab 1</cd-tab-button>
+                  <cd-tab-button>Standalone Tab 2</cd-tab-button>
+                </cd-tab-bar>
+              </cd-tabs>
+            </div>
+          </cd-tab-content>
+          <cd-tab-content>
+            <ngx-prism [language]="'html'" [code]="samples.colors.html"></ngx-prism>
+          </cd-tab-content>
+          <cd-tab-content>
+            <ngx-prism [language]="'css'" [code]="samples.colors.css"></ngx-prism>
+          </cd-tab-content>
+        </cd-tabs>
+
+      </ion-card-content>
+    </ion-card>
+
+
+
+    <ion-card class="ion-padding">
+      <ion-card-title>Icons and Labels</ion-card-title>
+      <ion-card-subtitle>You can use the icon tag <code>&lt;i&gt;&lt;/i&gt;</code> like <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> and label tag <code>&lt;label&gt;&lt;/label&gt;</code> to customize the
+        <strong>CdTabButtonComponent</strong>.
+      </ion-card-subtitle>
+      <ion-card-content>
+
+        <cd-tabs displayMode="segments">
+          <cd-tab-bar color="secondary">
+            <cd-tab-button>Rendering</cd-tab-button>
+            <cd-tab-button>Code HTML</cd-tab-button>
+          </cd-tab-bar>
+          <cd-tab-content>
+            <div class="ion-padding">
+              <cd-tabs>
+                <cd-tab-bar [color]="'tertiary'">
+                  <cd-tab-button iconPosition="start">
+                    <i class="fas fa-beer"></i>
+                    <label>Beer</label>
+                  </cd-tab-button>
+                  <cd-tab-button>
+                    <i class="fas fa-pizza-slice"></i>
+                    <label>Pizza</label>
+                  </cd-tab-button>
+                  <cd-tab-button iconPosition="end">
+                    <i class="fas fa-coffee"></i>
+                    <label>Coffee</label>
+                  </cd-tab-button>
+                </cd-tab-bar>
+              </cd-tabs>
+            </div>
+          </cd-tab-content>
+          <cd-tab-content>
+            <ngx-prism [language]="'html'" [code]="samples.icons"></ngx-prism>
+          </cd-tab-content>
+        </cd-tabs>
+      </ion-card-content>
+    </ion-card>
+
+
+  </section>
+</ion-content>

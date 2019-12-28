@@ -7,6 +7,7 @@ const routes: Routes = [
     {path: 'basic', loadChildren: () => import('./basic/basic.module').then(m => m.BasicPageModule)},
     {path: 'component', loadChildren: () => import('./component/component.module').then(m => m.ComponentPageModule)},
     {path: 'ionic', loadChildren: () => import('./ionic/ionic.module').then(m => m.IonicPageModule)},
+    {path: 'standalone', loadChildren: () => import('./standalone/standalone.module').then(m => m.StandalonePageModule)},
 ];
 
 @NgModule({

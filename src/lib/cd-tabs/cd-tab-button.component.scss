@@ -40,8 +40,8 @@
   // Tab Button: Native
   // --------------------------------------------------
 
-  ion-label,
-  ion-icon {
+  ion-label, label,
+  ion-icon, i {
     display: block;
 
     align-self: center;
@@ -49,7 +49,6 @@
     max-width: 100%;
 
     text-overflow: ellipsis;
-
     white-space: nowrap;
 
     overflow: hidden;
@@ -59,10 +58,15 @@
   // Tab Button: Label / Icon
   // --------------------------------------------------
 
-  ion-label {
+  ion-label, label {
     order: 0;
     font-size: 0.8rem;
     line-height: 1.4rem;
+  }
+
+  label {
+    margin: 0;
+    cursor: pointer;
   }
 
   ion-icon {
@@ -71,6 +75,13 @@
     height: 1em;
     font-size: 1.8rem;
     line-height: 2rem;
+  }
+
+  i {
+    order: -1;
+
+    font-size: 1.6rem;
+    vertical-align: baseline;
   }
 
   // Tab Button: Badge
@@ -132,12 +143,12 @@
 .cd-tab-icon-start {
   flex-direction: row;
 
-  ion-icon {
+  ion-icon, i {
     font-size: 1.2rem;
     margin-right: 5px;
   }
 
-  ion-label {
+  ion-label, label {
     font-size: 1rem;
   }
 }
@@ -145,12 +156,12 @@
 .cd-tab-icon-end {
   flex-direction: row-reverse;
 
-  ion-icon {
+  ion-icon, i {
     font-size: 1.2rem;
     margin-left: 5px;
   }
 
-  ion-label {
+  ion-label, label {
     font-size: 1rem;
   }
 }

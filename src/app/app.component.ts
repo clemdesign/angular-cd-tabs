@@ -32,6 +32,11 @@ export class AppComponent {
             url: '/ionic',
             icon: 'logo-ionic'
         },
+        {
+            title: 'Standalone Integration',
+            url: '/standalone',
+            icon: 'switch'
+        },
     ];
 
     constructor(private platform: Platform,
