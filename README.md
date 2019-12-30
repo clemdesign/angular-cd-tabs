@@ -53,5 +53,5 @@ Please submit [pull requests](https://github.com/clemdesign/angular-cd-tabs/pull
 
 ## License
 
-Under MIT
+Under MIT  
 Copyright (c) 2020 clemdesign

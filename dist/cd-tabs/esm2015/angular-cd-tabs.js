@@ -1,0 +1,12 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * Generated bundle index. Do not edit.
+ */
+export { CdTabsComponent, CdTabsModule } from './public-api';
+export { CdTabBarComponent as ɵa } from './lib/cd-tab-bar.component';
+export { CdTabButtonComponent as ɵb } from './lib/cd-tab-button.component';
+export { CdTabContentComponent as ɵc } from './lib/cd-tab-content.component';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYW5ndWxhci1jZC10YWJzLmpzIiwic291cmNlUm9vdCI6Im5nOi8vYW5ndWxhci1jZC10YWJzLyIsInNvdXJjZXMiOlsiYW5ndWxhci1jZC10YWJzLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7QUFJQSw4Q0FBYyxjQUFjLENBQUM7QUFFN0IsT0FBTyxFQUFDLGlCQUFpQixJQUFJLEVBQUUsRUFBQyxNQUFNLDRCQUE0QixDQUFDO0FBQ25FLE9BQU8sRUFBQyxvQkFBb0IsSUFBSSxFQUFFLEVBQUMsTUFBTSwrQkFBK0IsQ0FBQztBQUN6RSxPQUFPLEVBQUMscUJBQXFCLElBQUksRUFBRSxFQUFDLE1BQU0sZ0NBQWdDLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEdlbmVyYXRlZCBidW5kbGUgaW5kZXguIERvIG5vdCBlZGl0LlxuICovXG5cbmV4cG9ydCAqIGZyb20gJy4vcHVibGljLWFwaSc7XG5cbmV4cG9ydCB7Q2RUYWJCYXJDb21wb25lbnQgYXMgybVhfSBmcm9tICcuL2xpYi9jZC10YWItYmFyLmNvbXBvbmVudCc7XG5leHBvcnQge0NkVGFiQnV0dG9uQ29tcG9uZW50IGFzIMm1Yn0gZnJvbSAnLi9saWIvY2QtdGFiLWJ1dHRvbi5jb21wb25lbnQnO1xuZXhwb3J0IHtDZFRhYkNvbnRlbnRDb21wb25lbnQgYXMgybVjfSBmcm9tICcuL2xpYi9jZC10YWItY29udGVudC5jb21wb25lbnQnOyJdfQ==

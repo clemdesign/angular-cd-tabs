@@ -28,7 +28,7 @@
     <p><code>CdTabsComponent</code> is a good way if you want to display a vertical menu without slot constraints.</p>
     <p><strong>About Ionic 4 and this component:</strong></p>
     <p>This component is designed due to limitation of <code>ion-tabs</code>, which use a web component <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/slot" target="_blank">slot</a> and manage only <strong>bottom</strong> and <strong>top</strong> disposition.</p>
-    <p>This component not use <code>slot</code> and disposition is managed by <strong>property</strong>.</p>
+    <p>This component not use <code>slot</code> and disposition is managed by a <strong>property</strong>.</p>
   </section>
 
   <section>
@@ -36,7 +36,7 @@
     The following code renders the following sample:
 
     <h3>Code:</h3>
-    <ngx-prism [language]="'html'" [code]="sample"></ngx-prism>
+    <ngx-prism [language]="'html'" [code]="samples.basic"></ngx-prism>
 
     <h3>Rendering:</h3>
 
@@ -57,13 +57,14 @@
   <section>
     <h1>Installation</h1>
     <p>You can install <code>cd-tabs</code> using <a href="https://www.npmjs.com/" target="_blank">NPM</a>:</p>
-    <p><code>npm install angular-cd-tabs</code></p>
-    <p>Then, you shall <strong>import</strong> the <code>CdTabsModule</code> in <em>app.module.ts</em>.</p>
+    <p><ngx-prism [language]="'shell'">npm install angular-cd-tabs</ngx-prism></p>
+    <p>Then, you shall configure the  <em>app.module.ts</em> file:</p>
+    <ngx-prism [language]="'javascript'" [code]="samples.installation"></ngx-prism>
   </section>
 
   <section>
     <h1>License</h1>
     <p>Copyright 2020 (c) clemdesign.<br>
-      The library <code>angular cd-tabs</code> is under <a href="https://opensource.org/licenses/MIT" target="_blank">MIT</a> license.</p>
+      The library <code>angular-cd-tabs</code> is under <a href="https://opensource.org/licenses/MIT" target="_blank">MIT</a> license.</p>
   </section>
 </ion-content>

@@ -7,7 +7,8 @@ import {Component} from '@angular/core';
 })
 export class HomePage {
 
-    sample = `<cd-tabs>
+    samples = {
+        basic: `<cd-tabs>
     <cd-tab-bar>
         <cd-tab-button>Tab 1</cd-tab-button>
         <cd-tab-button>Tab 2</cd-tab-button>
@@ -16,7 +17,30 @@ export class HomePage {
     <cd-tab-content>Tab 1 is displayed !</cd-tab-content>
     <cd-tab-content>Tab 2 is displayed !</cd-tab-content>
     <cd-tab-content>Tab 3 is displayed !</cd-tab-content>
-</cd-tabs>`;
+</cd-tabs>`,
+        installation: `import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {RouterModule} from '@angular/router';
+
+import {AppComponent} from './app.component';
+import {CdTabsModule} from 'cd-tabs';
+
+@NgModule({
+    imports: [
+        CommonModule,
+        // Add the following lines
+        RouterModule.forRoot([
+            {
+                path: '',
+                component: AppComponent
+            }
+        ]),
+        CdTabsModule,
+    ],
+    declarations: [AppComponent]
+})
+export class AppComponentModule {}`
+    };
 
     constructor() {
     }
