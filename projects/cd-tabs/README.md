@@ -1,24 +1,31 @@
-# CdTabs
+# Angular-Cd-Tabs
 
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.3.
 
-## Code scaffolding
+This is a simple and customizable component for [Angular CLI](https://github.com/angular/angular-cli) with multiple possibilities, based on [Ionic Tabs](https://ionicframework.com/docs/api/tabs).
 
-Run `ng generate component component-name --project cd-tabs` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project cd-tabs`.
-> Note: Don't forget to add `--project cd-tabs` or else it will be added to the default project in your `angular.json` file. 
+`cd-tabs` is able to:
+- manage horizontal and vertical tabs.
+- manage icons.
+- manage Angular [Router](https://angular.io/guide/router).
 
-## Build
+This repo embed the demonstration app project, the library and the documentation.
 
-Run `ng build cd-tabs` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Prerequisites
 
-## Publishing
+- Angular 4 and upper
 
-After building your library with `ng build cd-tabs`, go to the dist folder `cd dist/cd-tabs` and run `npm publish`.
+## Usage
 
-## Running unit tests
+Please refer to [Github project](https://github.com/clemdesign/angular-cd-tabs).
 
-Run `ng test cd-tabs` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Contribution
 
-## Further help
+We welcome any or all kinds of contributions! 
+Please submit [pull requests](https://github.com/clemdesign/angular-cd-tabs/pulls) or 
+[create issues](https://github.com/clemdesign/angular-cd-tabs/issues) to contribute to this project :)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## License
+
+Under MIT
+Copyright (c) 2020 clemdesign
