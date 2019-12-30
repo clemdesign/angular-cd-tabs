@@ -116,8 +116,6 @@ export class CdTabBarComponent implements AfterViewInit, OnInit {
 
     /**
      * Select a tab according number, tab id or CdTabButtonComponent
-     * @param {number | string | CdTabButtonComponent} tab
-     * @returns {Promise<boolean>}
      */
     public select(tab: number | string | CdTabButtonComponent) {
         return new Promise<boolean>((resolve) => {
@@ -135,7 +133,6 @@ export class CdTabBarComponent implements AfterViewInit, OnInit {
 
     /**
      * Get selected component
-     * @returns {Promise<CdTabBarInterface>}
      */
     public getSelected() {
         return new Promise<CdTabBarInterface|null>((resolve) => {
@@ -160,8 +157,6 @@ export class CdTabBarComponent implements AfterViewInit, OnInit {
 
     /**
      * Get the tab according number, tab Id or CdTabButtonComponent
-     * @param {number | string | CdTabButtonComponent} tabRef
-     * @returns {Promise<CdTabBarInterface>}
      */
     public getTab(tabRef: number | string | CdTabButtonComponent) {
         return new Promise<CdTabBarInterface|null>((resolve) => {
@@ -208,8 +203,6 @@ export class CdTabBarComponent implements AfterViewInit, OnInit {
 
     /**
      * Select a tab
-     * @param {CdTabButtonComponent} tabToSelect
-     * @param {boolean} routing
      */
     private selectTab(tabToSelect: CdTabButtonComponent, routing = false) {
         // activate the tab title the user has clicked on.
@@ -233,7 +226,6 @@ export class CdTabBarComponent implements AfterViewInit, OnInit {
 
     /**
      * Emit the event {tabSelectedEvent}
-     * @param {CdTabButtonComponent} selectedTab
      */
     private emitTabSelected(selectedTab: CdTabButtonComponent) {
         this.tabSelectedEvent.emit({

@@ -1,0 +1,25 @@
+{
+  "name": "cd-tabs",
+  "description": "Cd-Tabs is a simple and customizable Angular CLI component to manage UI tabs.",
+  "version": "0.0.1",
+  "license": "MIT",
+  "keywords": [
+    "angular4",
+    "tabs",
+    "ionic"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/clemdesign/angular-cd-tabs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/clemdesign/angular-cd-tabs/issues"
+  },
+  "homepage": "https://github.com/clemdesign/angular-cd-tabs",
+  "author": "clemdesign",
+  "peerDependencies": {
+    "@angular/common": ">= 4.0.0",
+    "@angular/core": ">= 4.0.0",
+    "@angular/router": ">= 4.0.0"
+  }
+}

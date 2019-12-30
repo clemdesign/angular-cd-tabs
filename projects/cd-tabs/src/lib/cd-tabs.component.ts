@@ -41,8 +41,6 @@ export class CdTabsComponent implements AfterContentInit {
 
     /**
      * Select a tab according num, tab id or CdTabButtonComponent
-     * @param {number | string | CdTabButtonComponent} tab
-     * @returns {Promise<boolean>}
      */
     public select(tab: number | string | CdTabButtonComponent) {
         return new Promise<boolean>((resolve) => {
@@ -58,7 +56,6 @@ export class CdTabsComponent implements AfterContentInit {
 
     /**
      * Get selected tab
-     * @returns {Promise<CdTabInterface>}
      */
     public getSelected() {
         return new Promise<CdTabInterface | null>((resolve) => {
@@ -83,8 +80,6 @@ export class CdTabsComponent implements AfterContentInit {
 
     /**
      * Get a tab according number, tab id or CdTabButtonComponent
-     * @param {number | string | CdTabButtonComponent} tab
-     * @returns {Promise<CdTabInterface>}
      */
     public getTab(tab: number | string | CdTabButtonComponent) {
         return new Promise<CdTabInterface | null>((resolve) => {
@@ -109,7 +104,6 @@ export class CdTabsComponent implements AfterContentInit {
 
     /**
      * Ge the activated tab content
-     * @returns {any}
      */
     private getActivatedTabContent() {
         this.tabsContent.toArray().forEach(tabFn => {
@@ -122,7 +116,6 @@ export class CdTabsComponent implements AfterContentInit {
 
     /**
      * Active the tab content
-     * @param {any} tabData
      */
     private activeTabContent(tabData: CdTabBarInterface) {
         let index = 0;
@@ -145,8 +138,6 @@ export class CdTabsComponent implements AfterContentInit {
 
     /**
      * Emit the event when tab changed
-     * @param {CdTabBarInterface} tabBar
-     * @param {CdTabContentComponent} tabCnt
      */
     private emitTabChanged(tabBar: CdTabBarInterface, tabCnt: CdTabContentComponent) {
         this.tabChangedEvent.emit({

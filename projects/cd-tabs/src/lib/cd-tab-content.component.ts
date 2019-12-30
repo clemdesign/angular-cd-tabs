@@ -12,7 +12,6 @@ export class CdTabContentComponent implements AfterContentInit {
 
     /**
      * Content of tab
-     * @returns {string}
      */
     @Output() get content() {
         if (this.elt && this.elt.nativeElement && this.elt.nativeElement.childNodes[0]) {

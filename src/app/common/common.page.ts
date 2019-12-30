@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, ViewChild} from '@angular/core';
-import {CdTabInterface, CdTabsComponent} from '../../lib/cd-tabs/cd-tabs.component';
+import {CdTabInterface, CdTabsComponent} from 'cd-tabs';
 
 @Component({
     selector: 'app-common',

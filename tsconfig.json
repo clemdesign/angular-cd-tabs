@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "cd-tabs": [
+        "dist/cd-tabs"
+      ],
+      "cd-tabs/*": [
+        "dist/cd-tabs/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

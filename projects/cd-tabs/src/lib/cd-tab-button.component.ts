@@ -61,9 +61,6 @@ export class CdTabButtonComponent implements AfterContentInit {
 
     /**
      * Add Ripple to tab button
-     * @param {number} x
-     * @param {number} y
-     * @returns {Promise}
      */
     async addRipple(x: number, y: number) {
         return new Promise<() => void>(resolve => {
