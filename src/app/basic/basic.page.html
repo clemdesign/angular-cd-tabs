@@ -13,21 +13,21 @@
 
     <ion-card class="ion-padding">
       <ion-card-title>Ionic colors</ion-card-title>
-      <ion-card-header>In a <strong>Ionic app</strong>, you can use the input parameter <code>color</code> of
-        <strong>CdTabsComponent</strong>.
+      <ion-card-header>In a <strong>Ionic app</strong>, you can use the input property <code>color</code> of
+        <strong>CdTabBarComponent</strong>&nbsp;<a href="/components-api#cd-tab-bar"><i class="fas fa-link"></i></a> .
       </ion-card-header>
       <ion-card-content>
-        Refer to <a href="/ionic">Ionic Integration</a> section for demonstration.
+        Refer to <a href="/ionic-integration">Ionic Integration</a> section for demonstration.
       </ion-card-content>
     </ion-card>
 
     <ion-card class="ion-padding">
       <ion-card-title>Custom colors</ion-card-title>
-      <ion-card-header>In <strong>standalone app</strong>, you can customize the colors of <code>cd-tabs</code> by defining variables
-        in a CSS class.
+      <ion-card-header>In <strong>standalone app</strong>, you can customize the colors of <strong>CdTabBarComponent</strong>&nbsp;<a href="/components-api#cd-tab-bar"><i class="fas fa-link"></i></a> by defining variables
+        in a CSS class&nbsp;<a href="/components-api#cd-tab-bar"><i class="fas fa-link"></i></a>.
       </ion-card-header>
       <ion-card-content>
-        Refer to <a href="/standalone">Standalone Integration</a> section for demonstration.
+        Refer to <a href="/standalone-integration">Standalone Integration</a> section for demonstration.
       </ion-card-content>
     </ion-card>
 
@@ -35,7 +35,7 @@
 
   <section>
     <h1>Vertical Tabs</h1>
-    <p>With the input parameter <code>disposition</code>, you can set a vertical tabs with the value <code>vertical</code>.</p>
+    <p>With the input property <code>disposition</code> for <strong>CdTabsComponent</strong>&nbsp;<a href="/components-api#cd-tabs"><i class="fas fa-link"></i></a>, you can set a vertical tabs with the value <code>vertical</code>.</p>
     <ion-card class="ion-padding">
       <ion-card-content>
         <cd-tabs displayMode="segments">
@@ -53,17 +53,18 @@
               <cd-tab-content>Tab 2 is displayed !</cd-tab-content>
             </cd-tabs>
           </cd-tab-content>
+          <cd-tab-content>
+            <ngx-prism [language]="'html'" [code]="samples.vertical"></ngx-prism>
+          </cd-tab-content>
         </cd-tabs>
       </ion-card-content>
-      <cd-tab-content>
-        <ngx-prism [language]="'html'" [code]="samples.vertical"></ngx-prism>
-      </cd-tab-content>
     </ion-card>
   </section>
 
   <section>
     <h1>Router integration</h1>
-    <p>With the input parameter <code>routerLink</code>, you can link the tab action to Angular <a href="https://angular.io/guide/router" target="_blank">Router</a>.</p>
+    <p>With the input property <code>routerLink</code> for <strong>CdTabButtonComponent</strong>&nbsp;<a href="/components-api#cd-tab-button"><i class="fas fa-link"></i></a>, you can link the tab action to Angular <a href="https://angular.io/guide/router" target="_blank">Router</a>.</p>
+    <p>You shall set the property <code>selectMode</code> for <strong>CdTabsComponent</strong>&nbsp;<a href="/components-api#cd-tabs"><i class="fas fa-link"></i></a> to value <code>router</code> for using Router integration.</p>
     <ion-card class="ion-padding">
       <ion-card-title>Please look the menu on left side for demonstration!</ion-card-title>
       <ion-card-content>

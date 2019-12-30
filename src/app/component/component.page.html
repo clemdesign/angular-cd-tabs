@@ -6,12 +6,12 @@
 
 <ion-content class="ion-padding">
   <section>
-    <p>The <a href="/component#cd-tabs">CdTabsComponent</a> component is organized under several <strong>sub-components</strong> and <strong>interfaces</strong>:</p>
+    <p>The <a href="/components-api#cd-tabs">CdTabsComponent</a> component is organized under several <strong>sub-components</strong> and <strong>interfaces</strong>:</p>
     <ul>
-      <li><a href="/component#cd-tab-bar">CdTabBarComponent</a>: which list all buttons used by tabs definition.</li>
-      <li><a href="/component#cd-tab-button">CdTabButtonComponent</a>: a tab button definition.</li>
-      <li><a href="/component#cd-tab-content">CdTabContentComponent</a>: a tab content definition.</li>
-      <li><a href="/component#cd-tab-interface">CdTabInterface</a>: a tab interface for interaction with component.</li>
+      <li><a href="/components-api#cd-tab-bar">CdTabBarComponent</a>: which list all buttons used by tabs definition.</li>
+      <li><a href="/components-api#cd-tab-button">CdTabButtonComponent</a>: a tab button definition.</li>
+      <li><a href="/components-api#cd-tab-content">CdTabContentComponent</a>: a tab content definition.</li>
+      <li><a href="/components-api#cd-tab-interface">CdTabInterface</a>: a tab interface for interaction with component.</li>
     </ul>
   </section>
 
@@ -28,10 +28,10 @@
         <tr class="info">
           <td>Description</td>
           <td>
-            <code>String</code>: set-up the autoselection mode at initialization:
+            <code>String</code>: set-up the select mode of tabs:
             <ul>
-              <li><strong>config</strong>: use the configuration to auto select the activated tab (default).</li>
-              <li><strong>router</strong>: use router path matching to auto select the activated tab.</li>
+              <li><strong>config</strong>: use the configuration to select the activated tab (default).</li>
+              <li><strong>router</strong>: use Router to select the activated tab.</li>
             </ul>
           </td>
         </tr>
@@ -75,7 +75,7 @@
         <tr class="info">
           <td>Description</td>
           <td>
-            Select a <strong>tab</strong> by the <em>reference index number</em>, or <em>tab id</em> or <em>CdTabButtonComponent</em> reference.
+            Select a <strong>tab</strong> by the <em>index number</em> in list, or <em>tab id</em> or <em>CdTabButtonComponent</em> reference.
           </td>
         </tr>
         <tr class="info">
@@ -193,7 +193,6 @@
               <li><code>start</code>: icon placed at first in button.</li>
               <li><code>end</code>: icon placed at end of button.</li>
             </ul>
-            <p>You shall define the icon first in your <code>cd-tab-button</code>.</p>
           </td>
         </tr>
         <tr class="heading">

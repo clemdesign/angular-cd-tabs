@@ -7,7 +7,6 @@ import {Component} from '@angular/core';
 })
 export class BasicPage {
 
-
     samples = {
         vertical: `<cd-tabs disposition="vertical">
   <cd-tab-bar>
@@ -19,7 +18,7 @@ export class BasicPage {
 </cd-tabs>`,
         router: `<cd-tabs selectMode="router">
   <cd-tab-bar>
-    <cd-tab-button [routerLink]="['home']">
+    <cd-tab-button [routerLink]="['/home']">
       Home
     </cd-tab-button>
   </cd-tab-bar>

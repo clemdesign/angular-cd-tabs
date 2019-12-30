@@ -19,27 +19,27 @@ export class AppComponent {
         },
         {
             title: 'Basic Usage',
-            url: '/basic',
+            url: '/basic-usage',
             icon: 'cafe'
         },
         {
             title: 'Components API',
-            url: '/component',
+            url: '/components-api',
             icon: 'grid'
         },
         {
             title: 'Ionic Integration',
-            url: '/ionic',
+            url: '/ionic-integration',
             icon: 'logo-ionic'
         },
         {
             title: 'Standalone Integration',
-            url: '/standalone',
+            url: '/standalone-integration',
             icon: 'switch'
         },
         {
             title: 'Common Integration',
-            url: '/common',
+            url: '/common-integration',
             icon: 'medical'
         },
     ];

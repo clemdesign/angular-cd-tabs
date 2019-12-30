@@ -92,6 +92,16 @@ selectAction() {
     <cd-tab-button [disabled]="true">Disabled</cd-tab-button>
     <cd-tab-button><i class="fas fa-code"></i></cd-tab-button>
   </cd-tab-bar>
+</cd-tabs>`,
+        disposition: `<cd-tabs disposition="left|center|right|vertical">
+  <cd-tab-bar [color]="'warning'">
+    <cd-tab-button>Text</cd-tab-button>
+    <cd-tab-button><i class="fas fa-code"></i></cd-tab-button>
+    <cd-tab-button>
+      <i class="fas fa-code"></i>
+      + Text
+    </cd-tab-button>
+  </cd-tab-bar>
 </cd-tabs>`
     };
 

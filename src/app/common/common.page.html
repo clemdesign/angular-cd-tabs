@@ -13,7 +13,8 @@
 
     <ion-card class="ion-padding">
       <ion-card-title>Ripple effect</ion-card-title>
-      <ion-card-subtitle>You can apply a ripple effect to <strong>CdTabButtonComponent</strong> with property <code>ripple</code>.
+      <ion-card-subtitle>You can apply a ripple effect to <strong>CdTabButtonComponent</strong>&nbsp;<a
+        href="/components-api#cd-tab-button"><i class="fas fa-link"></i></a> with property <code>ripple</code>.
       </ion-card-subtitle>
       <ion-card-content>
         <cd-tabs displayMode="segments">
@@ -41,7 +42,8 @@
 
     <ion-card class="ion-padding">
       <ion-card-title>Segments</ion-card-title>
-      <ion-card-subtitle>You can customize the <strong>CdTabsComponent</strong> in segments like <a
+      <ion-card-subtitle>You can customize the <strong>CdTabsComponent</strong>&nbsp;<a href="/components-api#cd-tabs"><i
+        class="fas fa-link"></i></a> in segments like <a
         href="https://ionicframework.com/docs/api/segment" target="_blank">Ionic
         Segments</a> with property <code>displayMode</code>.
       </ion-card-subtitle>
@@ -71,8 +73,9 @@
 
     <ion-card class="ion-padding">
       <ion-card-title>Tab Id</ion-card-title>
-      <ion-card-subtitle>You can affect a <strong>Tab Id</strong> to sub-components of <strong>CdTabsComponent</strong> if you want that a
-        specific tab is affected to <code>cd-tab-button</code>.
+      <ion-card-subtitle>You can affect a <strong>Tab Id</strong> to sub-components of <strong>CdTabsComponent</strong>&nbsp;<a
+        href="/components-api#cd-tabs"><i class="fas fa-link"></i></a> if you want that a
+        specific tab is affected to <code>cd-tab-button</code>&nbsp;<a href="/components-api#cd-tab-button"><i class="fas fa-link"></i></a>.
         Otherwise, tab affection is ordered by index (First tab button = first tab content).
       </ion-card-subtitle>
       <ion-card-content>
@@ -89,9 +92,15 @@
                   <cd-tab-button tab="pizza2">Pizza</cd-tab-button>
                   <cd-tab-button tab="coffee3">Coffee</cd-tab-button>
                 </cd-tab-bar>
-                <cd-tab-content class="ion-padding ion-text-center" style="font-size: 3rem" id="coffee3"><ion-icon name="cafe"></ion-icon></cd-tab-content>
-                <cd-tab-content class="ion-padding ion-text-center" style="font-size: 3rem" id="beer1"><ion-icon name="beer"></ion-icon></cd-tab-content>
-                <cd-tab-content class="ion-padding ion-text-center" style="font-size: 3rem" id="pizza2"><ion-icon name="pizza"></ion-icon></cd-tab-content>
+                <cd-tab-content class="ion-padding ion-text-center" style="font-size: 3rem" id="coffee3">
+                  <ion-icon name="cafe"></ion-icon>
+                </cd-tab-content>
+                <cd-tab-content class="ion-padding ion-text-center" style="font-size: 3rem" id="beer1">
+                  <ion-icon name="beer"></ion-icon>
+                </cd-tab-content>
+                <cd-tab-content class="ion-padding ion-text-center" style="font-size: 3rem" id="pizza2">
+                  <ion-icon name="pizza"></ion-icon>
+                </cd-tab-content>
               </cd-tabs>
             </div>
           </cd-tab-content>
@@ -105,8 +114,11 @@
 
     <ion-card class="ion-padding">
       <ion-card-title>Events and Controls</ion-card-title>
-      <ion-card-subtitle>You can interact with <strong>CdTabsComponent</strong> by some methods and events.
-      <ion-card-header>You have the methods <code>getTab()</code>, <code>getSelected()</code> and <code>select()</code> and the event <code>tabChangedEvent</code>.</ion-card-header>
+      <ion-card-subtitle>You can interact with <strong>CdTabsComponent</strong>&nbsp;<a href="/components-api#cd-tabs"><i
+        class="fas fa-link"></i></a> by some methods and events.
+        <ion-card-header>You have the methods <code>getTab()</code>, <code>getSelected()</code> and <code>select()</code> and the event
+          <code>tabChangedEvent</code>.
+        </ion-card-header>
       </ion-card-subtitle>
       <ion-card-content>
         <cd-tabs displayMode="segments">
@@ -123,9 +135,15 @@
                   <cd-tab-button tab="pizza">Pizza</cd-tab-button>
                   <cd-tab-button tab="coffee">Coffee</cd-tab-button>
                 </cd-tab-bar>
-                <cd-tab-content class="ion-padding ion-text-center" style="font-size: 3rem" id="coffee"><ion-icon name="cafe"></ion-icon></cd-tab-content>
-                <cd-tab-content class="ion-padding ion-text-center" style="font-size: 3rem" id="beer"><ion-icon name="beer"></ion-icon></cd-tab-content>
-                <cd-tab-content class="ion-padding ion-text-center" style="font-size: 3rem" id="pizza"><ion-icon name="pizza"></ion-icon></cd-tab-content>
+                <cd-tab-content class="ion-padding ion-text-center" style="font-size: 3rem" id="coffee">
+                  <ion-icon name="cafe"></ion-icon>
+                </cd-tab-content>
+                <cd-tab-content class="ion-padding ion-text-center" style="font-size: 3rem" id="beer">
+                  <ion-icon name="beer"></ion-icon>
+                </cd-tab-content>
+                <cd-tab-content class="ion-padding ion-text-center" style="font-size: 3rem" id="pizza">
+                  <ion-icon name="pizza"></ion-icon>
+                </cd-tab-content>
               </cd-tabs>
             </div>
 
@@ -159,10 +177,11 @@
 
     <ion-card class="ion-padding">
       <ion-card-title>Disabled, Icon only</ion-card-title>
-      <ion-card-subtitle>You can apply a disabled state to <strong>CdTabButtonComponent</strong> with property <code>disabled</code>.
+      <ion-card-subtitle>You can apply a disabled state to <strong>CdTabButtonComponent</strong>&nbsp;<a
+        href="/components-api#cd-tab-button"><i class="fas fa-link"></i></a> with property <code>disabled</code>.
       </ion-card-subtitle>
       <ion-card-content>
-        <cd-tabs>
+        <cd-tabs displayMode="segments">
           <cd-tab-bar color="secondary">
             <cd-tab-button>Rendering</cd-tab-button>
             <cd-tab-button>Code HTML</cd-tab-button>
@@ -179,6 +198,63 @@
           </cd-tab-content>
           <cd-tab-content>
             <ngx-prism [language]="'html'" [code]="samples.disabled"></ngx-prism>
+          </cd-tab-content>
+        </cd-tabs>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="ion-padding">
+      <ion-card-title>Disposition</ion-card-title>
+      <ion-card-subtitle>You can apply some UI disposition to <strong>CdTabsComponent</strong>&nbsp;<a href="/components-api#cd-tabs"><i
+        class="fas fa-link"></i></a> with the property <code>disposition</code>.
+      </ion-card-subtitle>
+      <ion-card-header>This property shall be set at initialization and cannot dynamically changed.</ion-card-header>
+      <ion-card-content>
+        <cd-tabs displayMode="segments">
+          <cd-tab-bar color="secondary">
+            <cd-tab-button>Rendering</cd-tab-button>
+            <cd-tab-button>Code HTML</cd-tab-button>
+          </cd-tab-bar>
+          <cd-tab-content>
+            <div class="ion-padding">
+              <cd-tabs disposition="left">
+                <cd-tab-bar [color]="'warning'">
+                  <cd-tab-button>Beer</cd-tab-button>
+                  <cd-tab-button>Pizza</cd-tab-button>
+                  <cd-tab-button>Coffee</cd-tab-button>
+                </cd-tab-bar>
+              </cd-tabs>
+            </div>
+            <div class="ion-padding">
+              <cd-tabs disposition="center">
+                <cd-tab-bar [color]="'danger'">
+                  <cd-tab-button>Beer</cd-tab-button>
+                  <cd-tab-button>Pizza</cd-tab-button>
+                  <cd-tab-button>Coffee</cd-tab-button>
+                </cd-tab-bar>
+              </cd-tabs>
+            </div>
+            <div class="ion-padding">
+              <cd-tabs disposition="right">
+                <cd-tab-bar [color]="'success'">
+                  <cd-tab-button>Beer</cd-tab-button>
+                  <cd-tab-button>Pizza</cd-tab-button>
+                  <cd-tab-button>Coffee</cd-tab-button>
+                </cd-tab-bar>
+              </cd-tabs>
+            </div>
+            <div class="ion-padding">
+              <cd-tabs disposition="vertical">
+                <cd-tab-bar [color]="'warning'">
+                  <cd-tab-button>Beer</cd-tab-button>
+                  <cd-tab-button>Pizza</cd-tab-button>
+                  <cd-tab-button>Coffee</cd-tab-button>
+                </cd-tab-bar>
+              </cd-tabs>
+            </div>
+          </cd-tab-content>
+          <cd-tab-content>
+            <ngx-prism [language]="'html'" [code]="samples.disposition"></ngx-prism>
           </cd-tab-content>
         </cd-tabs>
       </ion-card-content>
