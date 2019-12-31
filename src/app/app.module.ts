@@ -8,7 +8,7 @@ import {StatusBar} from '@ionic-native/status-bar/ngx';
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
-import {CdTabsModule} from 'cd-tabs';
+import {CdTabsModule} from 'angular-cd-tabs';
 
 @NgModule({
     declarations: [AppComponent],

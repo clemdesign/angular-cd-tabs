@@ -916,6 +916,7 @@ if (false) {
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+// TODO: To run "ionic build --prod", rename the library "cd-tabs" as "angular-cd-tabs" all needed place
 class CdTabsModule {
 }
 CdTabsModule.decorators = [

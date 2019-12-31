@@ -6,7 +6,7 @@ import {IonicModule} from '@ionic/angular';
 
 import {CommonPage} from './common.page';
 import {RouterModule} from '@angular/router';
-import {CdTabsModule} from 'cd-tabs';
+import {CdTabsModule} from 'angular-cd-tabs';
 import {PrismModule} from '@ngx-prism/core';
 
 @NgModule({

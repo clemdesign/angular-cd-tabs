@@ -5,7 +5,7 @@ import {FormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 
 import {HomePage} from './home.page';
-import {CdTabsModule} from 'cd-tabs';
+import {CdTabsModule} from 'angular-cd-tabs';
 import {PrismModule} from '@ngx-prism/core';
 
 @NgModule({

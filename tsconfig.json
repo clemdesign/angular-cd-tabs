@@ -19,11 +19,11 @@
       "dom"
     ],
     "paths": {
-      "cd-tabs": [
-        "dist/cd-tabs"
+      "angular-cd-tabs": [
+        "dist/angular-cd-tabs"
       ],
-      "cd-tabs/*": [
-        "dist/cd-tabs/*"
+      "angular-cd-tabs/*": [
+        "dist/angular-cd-tabs/*"
       ]
     }
   },

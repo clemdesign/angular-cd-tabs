@@ -23,7 +23,7 @@ import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 
 import {AppComponent} from './app.component';
-import {CdTabsModule} from 'cd-tabs';
+import {CdTabsModule} from 'angular-cd-tabs';
 
 @NgModule({
     imports: [

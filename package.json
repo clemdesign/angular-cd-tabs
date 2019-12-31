@@ -10,9 +10,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build-lib": "ng build cd-tabs",
-    "npm-pack": "cd dist/cd-tabs && npm pack",
-    "npm-publish": "cd dist/cd-tabs && npm publish",
+    "build-lib": "ng build angular-cd-tabs",
+    "npm-pack": "cd dist/angular-cd-tabs && npm pack",
+    "npm-publish": "cd dist/angular-cd-tabs && npm publish",
     "package": "npm run build-lib && npm run npm-pack",
     "publish": "npm run build-lib && npm run npm-publish"
   },

@@ -43,7 +43,7 @@ Clone the repository `https://github.com/clemdesign/angular-cd-tabs-sample.git` 
 
 ### Build the library
 
-Run `ng build cd-tabs` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `ng build angular-cd-tabs` to build the project. The build artifacts will be stored in the `dist/` directory.
 
 ## Contribution
 
