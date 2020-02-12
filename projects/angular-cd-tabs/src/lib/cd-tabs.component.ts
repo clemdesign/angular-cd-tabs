@@ -107,7 +107,7 @@ export class CdTabsComponent implements AfterContentInit {
      */
     private getActivatedTabContent() {
         this.tabsContent.toArray().forEach(tabFn => {
-            if (tabFn.active === true) {
+            if (tabFn.activeState === true) {
                 return tabFn;
             }
         });

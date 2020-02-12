@@ -1,7 +1,8 @@
 import {
-    AfterViewInit, Component, ContentChildren, ElementRef, EventEmitter,
-    Input, OnInit, Output,
-    QueryList
+  AfterViewInit,
+  Component, ContentChildren, ElementRef, EventEmitter,
+  Input, OnInit, Output,
+  QueryList
 } from '@angular/core';
 import {CdTabButtonComponent} from './cd-tab-button.component';
 import {NavigationEnd, Router} from '@angular/router';

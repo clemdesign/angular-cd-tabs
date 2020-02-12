@@ -1,4 +1,4 @@
-import { EventEmitter, Component, ViewEncapsulation, ElementRef, Output, Input, HostListener, ContentChildren, ContentChild, NgModule } from '@angular/core';
+import { EventEmitter, Component, ViewEncapsulation, ElementRef, Output, Input, HostListener, ContentChildren, ChangeDetectionStrategy, ChangeDetectorRef, ContentChild, NgModule } from '@angular/core';
 import { __awaiter, __generator } from 'tslib';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -739,10 +739,23 @@ if (false) {
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var CdTabContentComponent = /** @class */ (function () {
-    function CdTabContentComponent(elt) {
+    function CdTabContentComponent(elt, cdr) {
         this.elt = elt;
-        this.active = false;
+        this.cdr = cdr;
+        this.activeState = false;
     }
+    Object.defineProperty(CdTabContentComponent.prototype, "active", {
+        set: /**
+         * @param {?} value
+         * @return {?}
+         */
+        function (value) {
+            this.activeState = value;
+            this.cdr.detectChanges();
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(CdTabContentComponent.prototype, "content", {
         /**
          * Content of tab
@@ -763,22 +776,25 @@ var CdTabContentComponent = /** @class */ (function () {
     /**
      * @return {?}
      */
-    CdTabContentComponent.prototype.ngAfterContentInit = /**
+    CdTabContentComponent.prototype.ngAfterViewInit = /**
      * @return {?}
      */
     function () {
         this.className = this.elt.nativeElement.className;
         this.elt.nativeElement.className = '';
+        this.cdr.detectChanges();
     };
     CdTabContentComponent.decorators = [
         { type: Component, args: [{
                     selector: 'cd-tab-content',
-                    template: "<div [hidden]=\"!active\" [class]=\"className\"><ng-content></ng-content></div>"
+                    template: "<div [hidden]=\"!activeState\" [class]=\"className\"><ng-content></ng-content></div>",
+                    changeDetection: ChangeDetectionStrategy.OnPush
                 }] }
     ];
     /** @nocollapse */
     CdTabContentComponent.ctorParameters = function () { return [
-        { type: ElementRef }
+        { type: ElementRef },
+        { type: ChangeDetectorRef }
     ]; };
     CdTabContentComponent.propDecorators = {
         id: [{ type: Input }],
@@ -791,7 +807,7 @@ if (false) {
     /** @type {?} */
     CdTabContentComponent.prototype.id;
     /** @type {?} */
-    CdTabContentComponent.prototype.active;
+    CdTabContentComponent.prototype.activeState;
     /** @type {?} */
     CdTabContentComponent.prototype.className;
     /**
@@ -799,6 +815,11 @@ if (false) {
      * @private
      */
     CdTabContentComponent.prototype.elt;
+    /**
+     * @type {?}
+     * @private
+     */
+    CdTabContentComponent.prototype.cdr;
 }
 
 /**
@@ -985,7 +1006,7 @@ var CdTabsComponent = /** @class */ (function () {
          * @return {?}
          */
         function (tabFn) {
-            if (tabFn.active === true) {
+            if (tabFn.activeState === true) {
                 return tabFn;
             }
         }));

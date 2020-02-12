@@ -1,4 +1,4 @@
-import { EventEmitter, Component, ViewEncapsulation, ElementRef, Output, Input, HostListener, ContentChildren, ContentChild, NgModule } from '@angular/core';
+import { EventEmitter, Component, ViewEncapsulation, ElementRef, Output, Input, HostListener, ContentChildren, ChangeDetectionStrategy, ChangeDetectorRef, ContentChild, NgModule } from '@angular/core';
 import { __awaiter } from 'tslib';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -627,10 +627,20 @@ if (false) {
 class CdTabContentComponent {
     /**
      * @param {?} elt
+     * @param {?} cdr
      */
-    constructor(elt) {
+    constructor(elt, cdr) {
         this.elt = elt;
-        this.active = false;
+        this.cdr = cdr;
+        this.activeState = false;
+    }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    set active(value) {
+        this.activeState = value;
+        this.cdr.detectChanges();
     }
     /**
      * Content of tab
@@ -645,20 +655,23 @@ class CdTabContentComponent {
     /**
      * @return {?}
      */
-    ngAfterContentInit() {
+    ngAfterViewInit() {
         this.className = this.elt.nativeElement.className;
         this.elt.nativeElement.className = '';
+        this.cdr.detectChanges();
     }
 }
 CdTabContentComponent.decorators = [
     { type: Component, args: [{
                 selector: 'cd-tab-content',
-                template: `<div [hidden]="!active" [class]="className"><ng-content></ng-content></div>`
+                template: `<div [hidden]="!activeState" [class]="className"><ng-content></ng-content></div>`,
+                changeDetection: ChangeDetectionStrategy.OnPush
             }] }
 ];
 /** @nocollapse */
 CdTabContentComponent.ctorParameters = () => [
-    { type: ElementRef }
+    { type: ElementRef },
+    { type: ChangeDetectorRef }
 ];
 CdTabContentComponent.propDecorators = {
     id: [{ type: Input }],
@@ -669,7 +682,7 @@ if (false) {
     /** @type {?} */
     CdTabContentComponent.prototype.id;
     /** @type {?} */
-    CdTabContentComponent.prototype.active;
+    CdTabContentComponent.prototype.activeState;
     /** @type {?} */
     CdTabContentComponent.prototype.className;
     /**
@@ -677,6 +690,11 @@ if (false) {
      * @private
      */
     CdTabContentComponent.prototype.elt;
+    /**
+     * @type {?}
+     * @private
+     */
+    CdTabContentComponent.prototype.cdr;
 }
 
 /**
@@ -825,7 +843,7 @@ class CdTabsComponent {
          * @return {?}
          */
         tabFn => {
-            if (tabFn.active === true) {
+            if (tabFn.activeState === true) {
                 return tabFn;
             }
         }));

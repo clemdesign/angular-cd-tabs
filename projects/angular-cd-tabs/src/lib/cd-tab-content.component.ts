@@ -1,14 +1,23 @@
-import {AfterContentInit, Component, ElementRef, Input, Output} from '@angular/core';
+import {
+  AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Input,
+  Output
+} from '@angular/core';
 
 @Component({
     selector: 'cd-tab-content',
-    template: `<div [hidden]="!active" [class]="className"><ng-content></ng-content></div>`
+    template: `<div [hidden]="!activeState" [class]="className"><ng-content></ng-content></div>`,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CdTabContentComponent implements AfterContentInit {
+export class CdTabContentComponent implements AfterViewInit {
     @Input() id: string;
-    @Input() active = false;
+    @Input()
+    set active(value: boolean) {
+       this.activeState = value;
+       this.cdr.detectChanges();
+    }
 
-    className: string;
+    public activeState = false;
+    public className: string;
 
     /**
      * Content of tab
@@ -20,10 +29,11 @@ export class CdTabContentComponent implements AfterContentInit {
         return '';
     }
 
-    constructor(private elt: ElementRef) {}
+    constructor(private elt: ElementRef, private cdr: ChangeDetectorRef) {}
 
-    ngAfterContentInit() {
+    ngAfterViewInit() {
         this.className = this.elt.nativeElement.className;
         this.elt.nativeElement.className = '';
+        this.cdr.detectChanges();
     }
 }

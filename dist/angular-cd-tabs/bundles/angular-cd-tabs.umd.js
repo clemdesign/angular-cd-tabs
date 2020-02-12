@@ -937,10 +937,23 @@
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var CdTabContentComponent = /** @class */ (function () {
-        function CdTabContentComponent(elt) {
+        function CdTabContentComponent(elt, cdr) {
             this.elt = elt;
-            this.active = false;
+            this.cdr = cdr;
+            this.activeState = false;
         }
+        Object.defineProperty(CdTabContentComponent.prototype, "active", {
+            set: /**
+             * @param {?} value
+             * @return {?}
+             */
+            function (value) {
+                this.activeState = value;
+                this.cdr.detectChanges();
+            },
+            enumerable: true,
+            configurable: true
+        });
         Object.defineProperty(CdTabContentComponent.prototype, "content", {
             /**
              * Content of tab
@@ -961,22 +974,25 @@
         /**
          * @return {?}
          */
-        CdTabContentComponent.prototype.ngAfterContentInit = /**
+        CdTabContentComponent.prototype.ngAfterViewInit = /**
          * @return {?}
          */
         function () {
             this.className = this.elt.nativeElement.className;
             this.elt.nativeElement.className = '';
+            this.cdr.detectChanges();
         };
         CdTabContentComponent.decorators = [
             { type: core.Component, args: [{
                         selector: 'cd-tab-content',
-                        template: "<div [hidden]=\"!active\" [class]=\"className\"><ng-content></ng-content></div>"
+                        template: "<div [hidden]=\"!activeState\" [class]=\"className\"><ng-content></ng-content></div>",
+                        changeDetection: core.ChangeDetectionStrategy.OnPush
                     }] }
         ];
         /** @nocollapse */
         CdTabContentComponent.ctorParameters = function () { return [
-            { type: core.ElementRef }
+            { type: core.ElementRef },
+            { type: core.ChangeDetectorRef }
         ]; };
         CdTabContentComponent.propDecorators = {
             id: [{ type: core.Input }],
@@ -989,7 +1005,7 @@
         /** @type {?} */
         CdTabContentComponent.prototype.id;
         /** @type {?} */
-        CdTabContentComponent.prototype.active;
+        CdTabContentComponent.prototype.activeState;
         /** @type {?} */
         CdTabContentComponent.prototype.className;
         /**
@@ -997,6 +1013,11 @@
          * @private
          */
         CdTabContentComponent.prototype.elt;
+        /**
+         * @type {?}
+         * @private
+         */
+        CdTabContentComponent.prototype.cdr;
     }
 
     /**
@@ -1183,7 +1204,7 @@
              * @return {?}
              */
             function (tabFn) {
-                if (tabFn.active === true) {
+                if (tabFn.activeState === true) {
                     return tabFn;
                 }
             }));

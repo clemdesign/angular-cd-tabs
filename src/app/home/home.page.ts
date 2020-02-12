@@ -1,11 +1,14 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
     selector: 'app-home',
     templateUrl: 'home.page.html',
     styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
+
+    // This one is implemented to check and validate issue about content checked
+    display = false;
 
     samples = {
         basic: `<cd-tabs>
@@ -43,6 +46,12 @@ export class AppComponentModule {}`
     };
 
     constructor() {
+    }
+
+    ngOnInit() {
+        setTimeout(() => {
+            this.display = true;
+        }, 200);
     }
 
 }
