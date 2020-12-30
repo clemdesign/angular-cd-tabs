@@ -1,7 +1,7 @@
 {
   "name": "angular-cd-tabs",
   "description": "Cd-Tabs is a simple and customizable Angular CLI component to manage UI tabs.",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "license": "MIT",
   "keywords": [
     "angular4",
