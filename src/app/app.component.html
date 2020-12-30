@@ -1,13 +1,13 @@
 <ion-app>
   <ion-split-pane contentId="main-content">
-    <ion-menu contentId="main-content" type="overlay">
+    <ion-menu contentId="main-content" type="overlay" #menuMainContent>
       <ion-header>
         <ion-toolbar color="primary">
           <ion-title>Cd-Tabs</ion-title>
         </ion-toolbar>
       </ion-header>
       <ion-content color="medium">
-        <cd-tabs disposition="vertical" selectMode="router">
+        <cd-tabs disposition="vertical" selectMode="router" (tabChanged)="onMenuSelected()">
           <cd-tab-bar auto-hide="false" color="medium">
             <cd-tab-button ripple="bounded" [routerLink]="[p.url]" *ngFor="let p of appMenu">
               <ion-icon slot="start" [name]="p.icon"></ion-icon>

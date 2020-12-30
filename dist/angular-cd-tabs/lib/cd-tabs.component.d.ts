@@ -2,13 +2,18 @@ import { AfterContentInit, EventEmitter, QueryList } from '@angular/core';
 import { CdTabBarComponent, CdTabBarInterface } from './cd-tab-bar.component';
 import { CdTabContentComponent } from './cd-tab-content.component';
 import { CdTabButtonComponent } from './cd-tab-button.component';
-export interface CdTabInterface extends CdTabBarInterface {
+export interface CdTabContentInterface extends CdTabBarInterface {
     tabContent?: CdTabContentComponent;
+}
+export interface CdTabInterface {
+    num: number;
+    tabId: string;
 }
 export declare class CdTabsComponent implements AfterContentInit {
     tabBar: CdTabBarComponent;
     tabsContent: QueryList<CdTabContentComponent>;
-    tabChangedEvent: EventEmitter<CdTabInterface>;
+    tabContentChanged: EventEmitter<CdTabContentInterface>;
+    tabChanged: EventEmitter<CdTabInterface>;
     selectMode: string;
     displayMode: string;
     disposition: string;
@@ -20,11 +25,11 @@ export declare class CdTabsComponent implements AfterContentInit {
     /**
      * Get selected tab
      */
-    getSelected(): Promise<CdTabInterface>;
+    getSelected(): Promise<CdTabContentInterface>;
     /**
      * Get a tab according number, tab id or CdTabButtonComponent
      */
-    getTab(tab: number | string | CdTabButtonComponent): Promise<CdTabInterface>;
+    getTab(tab: number | string | CdTabButtonComponent): Promise<CdTabContentInterface>;
     /**
      * Ge the activated tab content
      */
@@ -36,5 +41,5 @@ export declare class CdTabsComponent implements AfterContentInit {
     /**
      * Emit the event when tab changed
      */
-    private emitTabChanged;
+    private emitTabContentChanged;
 }

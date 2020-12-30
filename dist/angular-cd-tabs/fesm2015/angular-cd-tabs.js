@@ -704,14 +704,25 @@ if (false) {
 /**
  * @record
  */
-function CdTabInterface() { }
+function CdTabContentInterface() { }
 if (false) {
     /** @type {?|undefined} */
-    CdTabInterface.prototype.tabContent;
+    CdTabContentInterface.prototype.tabContent;
+}
+/**
+ * @record
+ */
+function CdTabInterface() { }
+if (false) {
+    /** @type {?} */
+    CdTabInterface.prototype.num;
+    /** @type {?} */
+    CdTabInterface.prototype.tabId;
 }
 class CdTabsComponent {
     constructor() {
-        this.tabChangedEvent = new EventEmitter();
+        this.tabContentChanged = new EventEmitter();
+        this.tabChanged = new EventEmitter();
         this.selectMode = 'config';
         this.displayMode = 'default';
         this.disposition = '';
@@ -858,6 +869,10 @@ class CdTabsComponent {
     activeTabContent(tabData) {
         /** @type {?} */
         let index = 0;
+        this.tabChanged.emit({
+            num: tabData.num,
+            tabId: tabData.tabId
+        });
         this.tabsContent.toArray().forEach((/**
          * @param {?} tabFn
          * @return {?}
@@ -867,13 +882,13 @@ class CdTabsComponent {
             if (tabData.tabId) {
                 if (tabData.tabId === tabFn.id) {
                     tabFn.active = true;
-                    this.emitTabChanged(tabData, tabFn);
+                    this.emitTabContentChanged(tabData, tabFn);
                 }
             }
             else {
                 if (index === tabData.num) {
                     tabFn.active = true;
-                    this.emitTabChanged(tabData, tabFn);
+                    this.emitTabContentChanged(tabData, tabFn);
                 }
             }
             index++;
@@ -886,8 +901,8 @@ class CdTabsComponent {
      * @param {?} tabCnt
      * @return {?}
      */
-    emitTabChanged(tabBar, tabCnt) {
-        this.tabChangedEvent.emit({
+    emitTabContentChanged(tabBar, tabCnt) {
+        this.tabContentChanged.emit({
             num: tabBar.num,
             tabId: tabBar.tabId,
             tabButton: tabBar.tabButton,
@@ -910,7 +925,8 @@ CdTabsComponent.decorators = [
 CdTabsComponent.propDecorators = {
     tabBar: [{ type: ContentChild, args: [CdTabBarComponent, { static: false },] }],
     tabsContent: [{ type: ContentChildren, args: [CdTabContentComponent,] }],
-    tabChangedEvent: [{ type: Output }],
+    tabContentChanged: [{ type: Output }],
+    tabChanged: [{ type: Output }],
     selectMode: [{ type: Input }],
     displayMode: [{ type: Input }],
     disposition: [{ type: Input }]
@@ -921,7 +937,9 @@ if (false) {
     /** @type {?} */
     CdTabsComponent.prototype.tabsContent;
     /** @type {?} */
-    CdTabsComponent.prototype.tabChangedEvent;
+    CdTabsComponent.prototype.tabContentChanged;
+    /** @type {?} */
+    CdTabsComponent.prototype.tabChanged;
     /** @type {?} */
     CdTabsComponent.prototype.selectMode;
     /** @type {?} */

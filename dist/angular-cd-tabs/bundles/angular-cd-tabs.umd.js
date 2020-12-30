@@ -1027,14 +1027,25 @@
     /**
      * @record
      */
-    function CdTabInterface() { }
+    function CdTabContentInterface() { }
     if (false) {
         /** @type {?|undefined} */
-        CdTabInterface.prototype.tabContent;
+        CdTabContentInterface.prototype.tabContent;
+    }
+    /**
+     * @record
+     */
+    function CdTabInterface() { }
+    if (false) {
+        /** @type {?} */
+        CdTabInterface.prototype.num;
+        /** @type {?} */
+        CdTabInterface.prototype.tabId;
     }
     var CdTabsComponent = /** @class */ (function () {
         function CdTabsComponent() {
-            this.tabChangedEvent = new core.EventEmitter();
+            this.tabContentChanged = new core.EventEmitter();
+            this.tabChanged = new core.EventEmitter();
             this.selectMode = 'config';
             this.displayMode = 'default';
             this.disposition = '';
@@ -1229,6 +1240,10 @@
             var _this = this;
             /** @type {?} */
             var index = 0;
+            this.tabChanged.emit({
+                num: tabData.num,
+                tabId: tabData.tabId
+            });
             this.tabsContent.toArray().forEach((/**
              * @param {?} tabFn
              * @return {?}
@@ -1238,13 +1253,13 @@
                 if (tabData.tabId) {
                     if (tabData.tabId === tabFn.id) {
                         tabFn.active = true;
-                        _this.emitTabChanged(tabData, tabFn);
+                        _this.emitTabContentChanged(tabData, tabFn);
                     }
                 }
                 else {
                     if (index === tabData.num) {
                         tabFn.active = true;
-                        _this.emitTabChanged(tabData, tabFn);
+                        _this.emitTabContentChanged(tabData, tabFn);
                     }
                 }
                 index++;
@@ -1260,7 +1275,7 @@
          * @param {?} tabCnt
          * @return {?}
          */
-        CdTabsComponent.prototype.emitTabChanged = /**
+        CdTabsComponent.prototype.emitTabContentChanged = /**
          * Emit the event when tab changed
          * @private
          * @param {?} tabBar
@@ -1268,7 +1283,7 @@
          * @return {?}
          */
         function (tabBar, tabCnt) {
-            this.tabChangedEvent.emit({
+            this.tabContentChanged.emit({
                 num: tabBar.num,
                 tabId: tabBar.tabId,
                 tabButton: tabBar.tabButton,
@@ -1285,7 +1300,8 @@
         CdTabsComponent.propDecorators = {
             tabBar: [{ type: core.ContentChild, args: [CdTabBarComponent, { static: false },] }],
             tabsContent: [{ type: core.ContentChildren, args: [CdTabContentComponent,] }],
-            tabChangedEvent: [{ type: core.Output }],
+            tabContentChanged: [{ type: core.Output }],
+            tabChanged: [{ type: core.Output }],
             selectMode: [{ type: core.Input }],
             displayMode: [{ type: core.Input }],
             disposition: [{ type: core.Input }]
@@ -1298,7 +1314,9 @@
         /** @type {?} */
         CdTabsComponent.prototype.tabsContent;
         /** @type {?} */
-        CdTabsComponent.prototype.tabChangedEvent;
+        CdTabsComponent.prototype.tabContentChanged;
+        /** @type {?} */
+        CdTabsComponent.prototype.tabChanged;
         /** @type {?} */
         CdTabsComponent.prototype.selectMode;
         /** @type {?} */

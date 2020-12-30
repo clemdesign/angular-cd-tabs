@@ -6,8 +6,13 @@ import {CdTabBarComponent, CdTabBarInterface} from './cd-tab-bar.component';
 import {CdTabContentComponent} from './cd-tab-content.component';
 import {CdTabButtonComponent} from './cd-tab-button.component';
 
-export interface CdTabInterface extends CdTabBarInterface {
+export interface CdTabContentInterface extends CdTabBarInterface {
     tabContent?: CdTabContentComponent;
+}
+
+export interface CdTabInterface {
+    num: number;
+    tabId: string;
 }
 
 @Component({
@@ -25,7 +30,8 @@ export class CdTabsComponent implements AfterContentInit {
     @ContentChild(CdTabBarComponent, {static: false}) tabBar: CdTabBarComponent;
     @ContentChildren(CdTabContentComponent) tabsContent: QueryList<CdTabContentComponent>;
 
-    @Output() tabChangedEvent = new EventEmitter<CdTabInterface|null>();
+    @Output() tabContentChanged = new EventEmitter<CdTabContentInterface|null>();
+    @Output() tabChanged = new EventEmitter<CdTabInterface|null>();
 
     @Input() selectMode = 'config';
     @Input() displayMode = 'default';
@@ -58,7 +64,7 @@ export class CdTabsComponent implements AfterContentInit {
      * Get selected tab
      */
     public getSelected() {
-        return new Promise<CdTabInterface | null>((resolve) => {
+        return new Promise<CdTabContentInterface | null>((resolve) => {
             if (this.tabBar) {
                 this.tabBar.getSelected().then((result) => {
                     if (result !== null) {
@@ -82,7 +88,7 @@ export class CdTabsComponent implements AfterContentInit {
      * Get a tab according number, tab id or CdTabButtonComponent
      */
     public getTab(tab: number | string | CdTabButtonComponent) {
-        return new Promise<CdTabInterface | null>((resolve) => {
+        return new Promise<CdTabContentInterface | null>((resolve) => {
             if (this.tabBar) {
                 this.tabBar.getTab(tab).then((result) => {
                     if (result !== null) {
@@ -119,17 +125,21 @@ export class CdTabsComponent implements AfterContentInit {
      */
     private activeTabContent(tabData: CdTabBarInterface) {
         let index = 0;
+        this.tabChanged.emit({
+            num: tabData.num,
+            tabId: tabData.tabId
+        });
         this.tabsContent.toArray().forEach(tabFn => {
             tabFn.active = false;
             if (tabData.tabId) {
                 if (tabData.tabId === tabFn.id) {
                     tabFn.active = true;
-                    this.emitTabChanged(tabData, tabFn);
+                    this.emitTabContentChanged(tabData, tabFn);
                 }
             } else {
                 if (index === tabData.num) {
                     tabFn.active = true;
-                    this.emitTabChanged(tabData, tabFn);
+                    this.emitTabContentChanged(tabData, tabFn);
                 }
             }
             index++;
@@ -139,8 +149,8 @@ export class CdTabsComponent implements AfterContentInit {
     /**
      * Emit the event when tab changed
      */
-    private emitTabChanged(tabBar: CdTabBarInterface, tabCnt: CdTabContentComponent) {
-        this.tabChangedEvent.emit({
+    private emitTabContentChanged(tabBar: CdTabBarInterface, tabCnt: CdTabContentComponent) {
+        this.tabContentChanged.emit({
             num: tabBar.num,
             tabId: tabBar.tabId,
             tabButton: tabBar.tabButton,
